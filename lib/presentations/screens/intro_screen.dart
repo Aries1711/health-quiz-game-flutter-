@@ -51,9 +51,11 @@ class _IntroScreenState extends State<IntroScreen> {
             ),
             Padding(
               padding:
-                  EdgeInsets.only(top: 150, bottom: 10, left: 20, right: 20),
+                  EdgeInsets.only(top: 150, bottom: 20, left: 20, right: 20),
               child: ButtonGeneral(
-                  onPress: () {},
+                  onPress: () {
+                    Navigator.of(context).pushNamed('/biodata');
+                  },
                   backgroundColor: colorWhite,
                   widgetChild: Text(
                     "Mulai",
