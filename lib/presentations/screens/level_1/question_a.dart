@@ -20,8 +20,10 @@ class _QuestionAState extends State<QuestionA> {
   HelperFunction helperFunction = HelperFunction();
 
   launchDescriptionUrl() async {
-    Uri surveyUrlPatch = Uri(
-        scheme: 'https', host: 'www.youtube.com', path: '/watch?v=odjUjKzVDXo');
+    // Uri surveyUrlPatch = Uri(
+    //     scheme: 'https', host: 'www.youtube.com', path: '/watch?v=odjUjKzVDXo');
+    Uri surveyUrlPatch =
+        Uri.parse('https://www.youtube.com/watch?v=odjUjKzVDXo');
     helperFunction.launchUrlExternal(surveyUrlPatch);
   }
 
