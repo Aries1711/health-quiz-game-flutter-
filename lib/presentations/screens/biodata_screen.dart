@@ -1,10 +1,16 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables, prefer_const_literals_to_create_immutables
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:game_health_efa/constant/colors.dart';
+import 'package:game_health_efa/logic/function/global_preferences.dart';
+import 'package:game_health_efa/logic/function/helper.dart';
 import 'package:game_health_efa/presentations/widgets/button_general.dart';
+import 'package:game_health_efa/presentations/widgets/custom_date_picker.dart';
 import 'package:game_health_efa/presentations/widgets/input_text_field.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
 class BiodataScreen extends StatefulWidget {
   final String title;
@@ -17,11 +23,200 @@ class BiodataScreen extends StatefulWidget {
 class _BiodataScreenState extends State<BiodataScreen> {
   TextEditingController fullnameController = TextEditingController();
   String errorFullnameMessage = "", errorMessageBirthday = "";
+  GlobalPreferences globalPreferences = GlobalPreferences();
+  HelperFunction helperFunction = HelperFunction();
+  DateTime? pickedDate;
+  String? birthDatePick, birthMonthPick, birthYearPick, birthDateToPost;
+  String birthDateText = "empty", chooseGenderString = "Laki-laki";
+  int chooseGender = 0;
+
+  _pickDate() async {
+    DateTime? date = await myCustomDatePicker(
+      context: context,
+      initialDate: pickedDate!,
+      firstDate: DateTime(DateTime.now().year - 200),
+      lastDate: DateTime(DateTime.now().year + 1),
+    );
+
+    if (date != null) {
+      setState(() {
+        pickedDate = date;
+        birthDatePick = DateFormat('dd').format(pickedDate!);
+        birthMonthPick = helperFunction
+            .explodeMonthText(DateFormat('MM').format(pickedDate!));
+        birthYearPick = DateFormat('yyyy').format(pickedDate!);
+        birthDateText = "$birthDatePick $birthMonthPick $birthYearPick";
+        birthDateToPost = DateFormat('yyyy-MM-dd').format(pickedDate!);
+        debugPrint(birthDateToPost);
+        debugPrint("ini tanggal text format $birthDateText");
+      });
+    }
+  }
+
+  showDropdownMethod(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    showModalBottomSheet(
+        context: context,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        isScrollControlled: true,
+        builder: (context) {
+          return StatefulBuilder(
+              builder: (BuildContext context, StateSetter myState) {
+            return FractionallySizedBox(
+              heightFactor: 0.4,
+              child: Theme(
+                data: Theme.of(context).copyWith(canvasColor: colorWhite),
+                child: Container(
+                  width: size.width,
+                  decoration: BoxDecoration(
+                    color: colorWhite,
+                    borderRadius: BorderRadius.only(
+                      topLeft: const Radius.circular(20.0),
+                      topRight: const Radius.circular(20.0),
+                    ),
+                  ),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Container(
+                          margin: EdgeInsets.only(right: 20),
+                          padding: EdgeInsets.only(top: 30, bottom: 30),
+                          width: size.width,
+                          decoration: BoxDecoration(
+                              color: colorWhite,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                                topRight: Radius.circular(10),
+                              )),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              SizedBox(
+                                width: size.width * 0.25,
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Container(
+                                  width: 100,
+                                  height: 5,
+                                  decoration: BoxDecoration(
+                                    color: colorGrey,
+                                    borderRadius: BorderRadius.circular(3),
+                                  ),
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                      left: 20, right: 20, top: 10),
+                                  child: Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      "Selesai",
+                                      textAlign: TextAlign.center,
+                                      style: GoogleFonts.rubik(
+                                        textStyle: TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          color: colorPurplePrimary,
+                                          fontSize: 16,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        Container(
+                          height: size.height * 0.2,
+                          padding:
+                              EdgeInsets.only(left: 20, right: 20, bottom: 30),
+                          child: Row(
+                            children: <Widget>[
+                              Expanded(
+                                child: CupertinoPicker(
+                                  itemExtent: 65,
+                                  onSelectedItemChanged: (int index) {
+                                    setState(() {
+                                      chooseGender = index;
+                                      debugPrint(
+                                          " ini index method $chooseGender");
+                                      if (index == 1) {
+                                        chooseGenderString = "Perempuan";
+                                      } else {
+                                        chooseGenderString = "Laki-laki";
+                                      }
+                                    });
+                                  },
+                                  children: <Widget>[
+                                    Align(
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        "Pilih Jenis Kelamin",
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.rubik(
+                                          textStyle: TextStyle(
+                                              fontWeight: FontWeight.w500,
+                                              color: colorPurplePrimary,
+                                              fontSize: 18),
+                                        ),
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        "Laki-laki",
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.rubik(
+                                          textStyle: TextStyle(
+                                              fontWeight: FontWeight.w500,
+                                              color: colorPurplePrimary,
+                                              fontSize: 18),
+                                        ),
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        "Perempuan",
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.rubik(
+                                          textStyle: TextStyle(
+                                              fontWeight: FontWeight.w500,
+                                              color: colorPurplePrimary,
+                                              fontSize: 18),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            );
+          });
+        });
+  }
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
+    pickedDate = DateTime(DateTime.now().year - 40);
   }
 
   @override
@@ -109,7 +304,7 @@ class _BiodataScreenState extends State<BiodataScreen> {
                         textController: fullnameController),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () => _pickDate(),
                     child: Container(
                       width: size.width,
                       padding: EdgeInsets.only(
@@ -121,7 +316,9 @@ class _BiodataScreenState extends State<BiodataScreen> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Masukkan tanggal lahir",
+                          birthDateText == "empty"
+                              ? "Masukkan tanggal lahir"
+                              : birthDateText,
                           textAlign: TextAlign.center,
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(
@@ -135,7 +332,7 @@ class _BiodataScreenState extends State<BiodataScreen> {
                     ),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () => showDropdownMethod(context),
                     child: Container(
                       width: size.width,
                       margin: EdgeInsets.only(top: 15),
@@ -148,7 +345,9 @@ class _BiodataScreenState extends State<BiodataScreen> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Pilih jenis kelamin",
+                          chooseGender == 0
+                              ? "Pilih jenis kelamin"
+                              : chooseGenderString,
                           textAlign: TextAlign.center,
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(
