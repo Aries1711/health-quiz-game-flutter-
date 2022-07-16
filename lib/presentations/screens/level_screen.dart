@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:game_health_efa/constant/colors.dart';
 import 'package:game_health_efa/logic/function/global_preferences.dart';
 import 'package:game_health_efa/logic/function/helper.dart';
-import 'package:game_health_efa/presentations/widgets/button_general.dart';
 import 'package:game_health_efa/presentations/widgets/button_general_seconday.dart';
 import 'package:game_health_efa/presentations/widgets/card_level.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -20,8 +19,11 @@ class LevelsScreen extends StatefulWidget {
 class _LevelsScreenState extends State<LevelsScreen> {
   GlobalPreferences globalPreferences = GlobalPreferences();
   HelperFunction helperFunction = HelperFunction();
+  String nameUser = "", genderUser = "", birthdateUser = "";
+  int levelUserOpen = 0;
 
-  Future<Object> showDialogStart(BuildContext context, Size size) async {
+  Future<Object> showDialogStart(
+      BuildContext context, Size size, int levelChoose) async {
     return showGeneralDialog(
       context: context,
       barrierDismissible: false,
@@ -55,7 +57,7 @@ class _LevelsScreenState extends State<LevelsScreen> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          "Level 1",
+                          "Level $levelChoose",
                           textAlign: TextAlign.center,
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(
@@ -68,7 +70,15 @@ class _LevelsScreenState extends State<LevelsScreen> {
                         Padding(
                           padding: EdgeInsets.only(left: 20),
                           child: Text(
-                            "Mudah banget",
+                            (() {
+                              if (levelChoose == 1) {
+                                return "Mudah banget";
+                              } else if (levelChoose == 2) {
+                                return "Hura huru";
+                              } else {
+                                return "Senam jantung";
+                              }
+                            }()),
                             textAlign: TextAlign.center,
                             style: GoogleFonts.rubik(
                               textStyle: TextStyle(
@@ -83,9 +93,17 @@ class _LevelsScreenState extends State<LevelsScreen> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 20),
+                    padding: EdgeInsets.only(left: 20, right: 20),
                     child: Text(
-                      "Berisikan 7 pertanyaan dengan ketentuan (skor benar 5, salah 0, tanpa batas waktu)",
+                      (() {
+                        if (levelChoose == 1) {
+                          return "Berisikan 7 pertanyaan dengan ketentuan (skor benar 5, salah 0, tanpa batas waktu)";
+                        } else if (levelChoose == 2) {
+                          return "Berisikan 7 pertanyaan dengan ketentuan (skor benar 5, salah 0, dengan batas waktu 60 detik)";
+                        } else {
+                          return "Berisikan 7 pertanyaan dengan ketentuan (skor benar 5, salah -1, bila melewati batas menjawab 60 detik / salah skor -1)";
+                        }
+                      }()),
                       textAlign: TextAlign.start,
                       style: GoogleFonts.rubik(
                         textStyle: TextStyle(
@@ -97,7 +115,7 @@ class _LevelsScreenState extends State<LevelsScreen> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 20, top: 20),
+                    padding: EdgeInsets.only(left: 20, right: 20, top: 20),
                     child: Text(
                       "Game akan dimulai saat kamu klik start",
                       textAlign: TextAlign.center,
@@ -141,8 +159,16 @@ class _LevelsScreenState extends State<LevelsScreen> {
                           flex: 5,
                           child: ButtonGeneralSecondary(
                               onPress: () {
-                                Navigator.of(context)
-                                    .pushNamed('/level_a/question_a');
+                                if (levelChoose == 1) {
+                                  Navigator.of(context)
+                                      .pushNamed('/level_a/question_a');
+                                } else if (levelChoose == 2) {
+                                  Navigator.of(context)
+                                      .pushNamed('/level_a/question_a');
+                                } else {
+                                  Navigator.of(context)
+                                      .pushNamed('/level_a/question_a');
+                                }
                               },
                               backgroundColor: colorPurplePrimary,
                               widgetChild: Text(
@@ -169,9 +195,23 @@ class _LevelsScreenState extends State<LevelsScreen> {
     );
   }
 
+  onLoadPage() async {
+    String nameUserString = await globalPreferences.getFullname();
+    String birthdateUserString = await globalPreferences.getBirthdate();
+    String genderUserString = await globalPreferences.getGender();
+    int levelOpenInt = await globalPreferences.getLevelOpen();
+
+    setState(() {
+      nameUser = nameUserString;
+      birthdateUser = birthdateUserString;
+      genderUser = genderUserString;
+      levelUserOpen = levelOpenInt;
+    });
+  }
+
   @override
   void initState() {
-    // TODO: implement initState
+    onLoadPage();
     super.initState();
   }
 
@@ -237,7 +277,7 @@ class _LevelsScreenState extends State<LevelsScreen> {
                           child: Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              "Arisqi Setyawan",
+                              nameUser,
                               textAlign: TextAlign.center,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
@@ -256,7 +296,7 @@ class _LevelsScreenState extends State<LevelsScreen> {
                           child: Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              "27 Februari 2022",
+                              birthdateUser,
                               textAlign: TextAlign.center,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
@@ -299,27 +339,35 @@ class _LevelsScreenState extends State<LevelsScreen> {
               size: size,
               textLevel: "Level 1",
               textSubtitle: "Mudah banget",
-              backgroundColor: colorWhite,
+              backgroundColor: levelUserOpen > 0 ? colorWhite : colorGrey,
               onPress: () {
-                showDialogStart(context, size);
+                showDialogStart(context, size, 1);
               },
             ),
             CardLevel(
               size: size,
               textLevel: "Level 2",
               textSubtitle: "Yang bikin terburu-buru",
-              backgroundColor: colorGrey,
+              backgroundColor: levelUserOpen > 1 ? colorWhite : colorGrey,
               onPress: () {
-                helperFunction.toastMessage("Maaf belum bisa pilih level ini");
+                if (levelUserOpen > 1) {
+                } else {
+                  helperFunction
+                      .toastMessage("Maaf belum bisa pilih level ini");
+                }
               },
             ),
             CardLevel(
               size: size,
               textLevel: "Level 3",
               textSubtitle: "Senam jantung yuk",
-              backgroundColor: colorGrey,
+              backgroundColor: levelUserOpen > 2 ? colorWhite : colorGrey,
               onPress: () {
-                helperFunction.toastMessage("Maaf belum bisa pilih level ini");
+                if (levelUserOpen > 2) {
+                } else {
+                  helperFunction
+                      .toastMessage("Maaf belum bisa pilih level ini");
+                }
               },
             ),
           ],

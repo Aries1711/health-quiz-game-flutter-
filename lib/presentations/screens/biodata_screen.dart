@@ -27,7 +27,7 @@ class _BiodataScreenState extends State<BiodataScreen> {
   HelperFunction helperFunction = HelperFunction();
   DateTime? pickedDate;
   String? birthDatePick, birthMonthPick, birthYearPick, birthDateToPost;
-  String birthDateText = "empty", chooseGenderString = "Laki-laki";
+  String birthDateText = "empty", chooseGenderString = "Pilih jenis kelamin";
   int chooseGender = 0;
 
   _pickDate() async {
@@ -151,9 +151,9 @@ class _BiodataScreenState extends State<BiodataScreen> {
                                       debugPrint(
                                           " ini index method $chooseGender");
                                       if (index == 1) {
-                                        chooseGenderString = "Perempuan";
-                                      } else {
                                         chooseGenderString = "Laki-laki";
+                                      } else {
+                                        chooseGenderString = "Perempuan";
                                       }
                                     });
                                   },
@@ -211,6 +211,25 @@ class _BiodataScreenState extends State<BiodataScreen> {
             );
           });
         });
+  }
+
+  validateInputAndSaveData() async {
+    if (fullnameController.text == "") {
+      helperFunction.toastMessage("Harap masukkan nama lengkap");
+      return false;
+    } else if (chooseGenderString == 'Pilih jenis kelamin') {
+      helperFunction.toastMessage("Harap pilih jenis kelamin");
+      return false;
+    } else if (birthDateText == "empty") {
+      helperFunction.toastMessage("Harap masukkan tanggal lahir");
+      return false;
+    } else {
+      await globalPreferences.saveFullname(fullnameController.text);
+      await globalPreferences.saveGender(chooseGenderString);
+      await globalPreferences.saveBirthdate(birthDateText);
+      await globalPreferences.saveLevelOpen(1);
+      return true;
+    }
   }
 
   @override
@@ -381,8 +400,11 @@ class _BiodataScreenState extends State<BiodataScreen> {
                     padding: EdgeInsets.only(
                         top: 140, bottom: 20, left: 20, right: 20),
                     child: ButtonGeneral(
-                        onPress: () {
-                          Navigator.of(context).pushNamed('/level');
+                        onPress: () async {
+                          bool statusData = await validateInputAndSaveData();
+                          if (statusData == true) {
+                            Navigator.of(context).pushNamed('/level');
+                          }
                         },
                         backgroundColor: colorPurplePrimary,
                         widgetChild: Text(
