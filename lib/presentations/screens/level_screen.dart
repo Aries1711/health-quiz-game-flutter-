@@ -45,9 +45,8 @@ class _LevelsScreenState extends State<LevelsScreen> {
           return Dialog(
             elevation: 0,
             shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            child: Container(
-              height: 280,
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            child: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
                   Padding(
@@ -195,11 +194,129 @@ class _LevelsScreenState extends State<LevelsScreen> {
     );
   }
 
+  Future<Object> showDialogInfo(BuildContext context) async {
+    return showGeneralDialog(
+      context: context,
+      barrierDismissible: false,
+      transitionDuration: Duration(milliseconds: 500),
+      transitionBuilder: (context, animation, secondaryAnimation, child) {
+        return ScaleTransition(
+          child: child,
+          scale: Tween<double>(end: 1.0, begin: 0).animate(
+            CurvedAnimation(
+              parent: animation,
+              curve: Interval(0.00, 0.50, curve: Curves.linear),
+            ),
+          ),
+        );
+      },
+      pageBuilder: (context, animation, secondaryAnimation) {
+        return StatefulBuilder(
+            builder: (BuildContext context, StateSetter myState) {
+          return Dialog(
+            elevation: 0,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            child: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.only(
+                        left: 20, right: 20, top: 20, bottom: 30),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          "Info Game",
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.rubik(
+                            textStyle: TextStyle(
+                              fontWeight: FontWeight.w800,
+                              color: colorPurplePrimary,
+                              fontSize: 22,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 20),
+                          child: Text(
+                            "Baca dengan teliti",
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.rubik(
+                              textStyle: TextStyle(
+                                fontWeight: FontWeight.w800,
+                                color: colorBlackSecondary,
+                                fontSize: 14,
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 20, right: 20),
+                    child: Text(
+                      "Dalam permainan game E-Fa pemain harus menyelesaikan setiap level dengan skor kelulusan maksimum untuk bisa lanjut memilih level selanjutnya",
+                      textAlign: TextAlign.start,
+                      style: GoogleFonts.rubik(
+                        textStyle: TextStyle(
+                          fontWeight: FontWeight.w800,
+                          color: colorBlackSecondary,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 20, right: 20, top: 20),
+                    child: Text(
+                      "Sssstttt peraturan di setiap level berbeda pastikan Anda benar-benar sudah siap",
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.rubik(
+                        textStyle: TextStyle(
+                          fontWeight: FontWeight.w800,
+                          color: Colors.red,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                        top: 20, bottom: 20, left: 20, right: 20),
+                    child: ButtonGeneralSecondary(
+                        onPress: () {
+                          Navigator.pop(context);
+                        },
+                        backgroundColor: colorGrey,
+                        widgetChild: Text(
+                          "Tutup",
+                          style: GoogleFonts.rubik(
+                            textStyle: TextStyle(
+                              fontWeight: FontWeight.w700,
+                              color: colorBlackSecondary,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
+                        textColor: colorWhite),
+                  )
+                ],
+              ),
+            ),
+          );
+        });
+      },
+    );
+  }
+
   onLoadPage() async {
     String nameUserString = await globalPreferences.getFullname();
     String birthdateUserString = await globalPreferences.getBirthdate();
     String genderUserString = await globalPreferences.getGender();
     int levelOpenInt = await globalPreferences.getLevelOpen();
+    print(genderUserString);
 
     setState(() {
       nameUser = nameUserString;
@@ -266,7 +383,9 @@ class _LevelsScreenState extends State<LevelsScreen> {
                 children: [
                   Expanded(
                     flex: 2,
-                    child: Image.asset("assets/images/logo-men.png"),
+                    child: Image.asset(genderUser == "Laki-laki"
+                        ? "assets/images/logo-men.png"
+                        : "assets/images/logo-women.png"),
                   ),
                   Expanded(
                     flex: 8,
@@ -314,6 +433,50 @@ class _LevelsScreenState extends State<LevelsScreen> {
                     ),
                   )
                 ],
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                showDialogInfo(context);
+              },
+              child: Container(
+                width: size.width,
+                height: 60,
+                margin: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: colorWhite,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: 20, top: 20, right: 20, bottom: 20),
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "Aturan main E-Fa",
+                          textAlign: TextAlign.center,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: GoogleFonts.rubik(
+                            textStyle: TextStyle(
+                              fontWeight: FontWeight.w700,
+                              color: colorBlackSecondary,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Icon(
+                      Icons.info,
+                      color: colorOrange,
+                      size: 30,
+                    )
+                  ],
+                ),
               ),
             ),
             Padding(

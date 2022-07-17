@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:game_health_efa/constant/colors.dart';
+import 'package:game_health_efa/logic/function/global_preferences.dart';
 import 'package:game_health_efa/logic/function/helper.dart';
 import 'package:game_health_efa/presentations/widgets/button_general_seconday.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,6 +17,8 @@ class FinishScreenLevelA extends StatefulWidget {
 
 class _FinishScreenLevelAState extends State<FinishScreenLevelA> {
   HelperFunction helperFunction = HelperFunction();
+  GlobalPreferences globalPreferences = GlobalPreferences();
+  String nameUser = "", genderUser = "", birthdateUser = "";
 
   Future<Object> showDialogToIntro(BuildContext context, Size size) async {
     return showGeneralDialog(
@@ -99,8 +102,9 @@ class _FinishScreenLevelAState extends State<FinishScreenLevelA> {
                   Padding(
                     padding: const EdgeInsets.all(20),
                     child: ButtonGeneralSecondary(
-                      onPress: () {
-                        Navigator.of(context).pushNamed('/');
+                      onPress: () async {
+                        await globalPreferences.resetData();
+                        await Navigator.of(context).pushNamed('/');
                       },
                       backgroundColor: colorPurplePrimary,
                       widgetChild: Text(
@@ -233,6 +237,25 @@ class _FinishScreenLevelAState extends State<FinishScreenLevelA> {
     );
   }
 
+  onLoadPage() async {
+    String nameUserString = await globalPreferences.getFullname();
+    String birthdateUserString = await globalPreferences.getBirthdate();
+    String genderUserString = await globalPreferences.getGender();
+    print(genderUserString);
+
+    setState(() {
+      nameUser = nameUserString;
+      birthdateUser = birthdateUserString;
+      genderUser = genderUserString;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    onLoadPage();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -279,7 +302,9 @@ class _FinishScreenLevelAState extends State<FinishScreenLevelA> {
                 Padding(
                   padding: EdgeInsets.only(top: 20),
                   child: Image.asset(
-                    "assets/images/logo-men.png",
+                    genderUser == "Laki-laki"
+                        ? "assets/images/logo-men.png"
+                        : "assets/images/logo-women.png",
                     height: 100,
                     fit: BoxFit.contain,
                   ),
@@ -289,7 +314,7 @@ class _FinishScreenLevelAState extends State<FinishScreenLevelA> {
                   child: Align(
                     alignment: Alignment.center,
                     child: Text(
-                      "Eky Madyaning Nastiti ",
+                      nameUser,
                       textAlign: TextAlign.center,
                       style: GoogleFonts.rubik(
                         textStyle: TextStyle(
