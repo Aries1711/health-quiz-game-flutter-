@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:game_health_efa/presentations/screens/biodata_screen.dart';
+import 'package:game_health_efa/presentations/screens/info_screen.dart';
 import 'package:game_health_efa/presentations/screens/intro_screen.dart';
 import 'package:game_health_efa/presentations/screens/level_1/finish_level.dart';
 import 'package:game_health_efa/presentations/screens/level_1/question_a.dart';
@@ -21,6 +22,12 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => IntroScreen(
             title: "Welcome",
+          ),
+        );
+      case '/info':
+        return MaterialPageRoute(
+          builder: (_) => InfoScreen(
+            title: "Tentang Game",
           ),
         );
       case '/biodata':

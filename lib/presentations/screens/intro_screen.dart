@@ -72,7 +72,9 @@ class _IntroScreenState extends State<IntroScreen> {
             Padding(
               padding: EdgeInsets.only(bottom: 30, left: 20, right: 20),
               child: ButtonGeneral(
-                  onPress: () {},
+                  onPress: () {
+                    Navigator.of(context).pushNamed('/info');
+                  },
                   backgroundColor: colorPurplePrimary,
                   widgetChild: Text(
                     "Tentang Game",

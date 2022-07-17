@@ -56,4 +56,24 @@ class GlobalPreferences {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getInt("scoreLevelOne");
   }
+
+  saveScoreLevelTwo(int scoreOne) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setInt("scoreLevelTwo", scoreOne);
+  }
+
+  getScoreLevelTwo() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getInt("scoreLevelTwo");
+  }
+
+  saveScoreLevelThree(int scoreOne) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setInt("scoreLevelThree", scoreOne);
+  }
+
+  getScoreLevelThree() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getInt("scoreLevelThree");
+  }
 }
