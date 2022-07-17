@@ -6,6 +6,10 @@ import 'package:game_health_efa/presentations/screens/info_screen.dart';
 import 'package:game_health_efa/presentations/screens/intro_screen.dart';
 import 'package:game_health_efa/presentations/screens/level_1/finish_level.dart';
 import 'package:game_health_efa/presentations/screens/level_1/question_a.dart';
+import 'package:game_health_efa/presentations/screens/level_2/finish_level.dart';
+import 'package:game_health_efa/presentations/screens/level_2/question_a.dart';
+import 'package:game_health_efa/presentations/screens/level_3/finish_level.dart';
+import 'package:game_health_efa/presentations/screens/level_3/question_a.dart';
 import 'package:game_health_efa/presentations/screens/level_screen.dart';
 import 'package:game_health_efa/presentations/screens/splash_screen.dart';
 
@@ -56,6 +60,35 @@ class AppRouter {
             title: "Finish Screen Level A",
           ),
         );
+
+      //route for level 2
+      case '/level_b/question_a':
+        return MaterialPageRoute(
+          builder: (_) => QuestionATwo(
+            title: "Select Level",
+          ),
+        );
+      case '/level_b/finish':
+        return MaterialPageRoute(
+          builder: (_) => FinishScreenLevelB(
+            title: "Finish Screen Level B",
+          ),
+        );
+
+      //route for level 3
+      case '/level_c/question_a':
+        return MaterialPageRoute(
+          builder: (_) => QuestionAThree(
+            title: "Select Level",
+          ),
+        );
+      case '/level_c/finish':
+        return MaterialPageRoute(
+          builder: (_) => FinishScreenLevelC(
+            title: "Finish Screen Level C",
+          ),
+        );
+
         break;
       default:
     }

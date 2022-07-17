@@ -157,14 +157,18 @@ class _LevelsScreenState extends State<LevelsScreen> {
                         Expanded(
                           flex: 5,
                           child: ButtonGeneralSecondary(
-                              onPress: () {
+                              onPress: () async {
                                 if (levelChoose == 1) {
+                                  await globalPreferences.saveScoreLevelOne(0);
                                   Navigator.of(context)
                                       .pushNamed('/level_a/question_a');
                                 } else if (levelChoose == 2) {
+                                  await globalPreferences.saveScoreLevelTwo(0);
                                   Navigator.of(context)
                                       .pushNamed('/level_a/question_a');
                                 } else {
+                                  await globalPreferences
+                                      .saveScoreLevelThree(0);
                                   Navigator.of(context)
                                       .pushNamed('/level_a/question_a');
                                 }

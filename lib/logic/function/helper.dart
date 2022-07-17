@@ -1,8 +1,11 @@
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:game_health_efa/constant/colors.dart';
+import 'package:game_health_efa/logic/function/global_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HelperFunction {
+  GlobalPreferences globalPreferences = GlobalPreferences();
+
   toastMessage(String message) {
     Fluttertoast.showToast(
         msg: message,
@@ -47,6 +50,31 @@ class HelperFunction {
       return "Desember";
     } else {
       return "invalid month";
+    }
+  }
+
+  savePointSpesificLevel(String skorLevel, int value) async {
+    if (skorLevel == "1") {
+      int getValueLevelNow = await globalPreferences.getScoreLevelOne();
+      if (getValueLevelNow == null) {
+        getValueLevelNow = 0;
+      }
+      int scoreAccumulated = getValueLevelNow + value;
+      await globalPreferences.saveScoreLevelOne(scoreAccumulated);
+    } else if (skorLevel == "2") {
+      int getValueLevelNow = await globalPreferences.getScoreLevelTwo();
+      if (getValueLevelNow == null) {
+        getValueLevelNow = 0;
+      }
+      int scoreAccumulated = getValueLevelNow + value;
+      await globalPreferences.saveScoreLevelTwo(scoreAccumulated);
+    } else if (skorLevel == "3") {
+      int getValueLevelNow = await globalPreferences.getScoreLevelThree();
+      if (getValueLevelNow == null) {
+        getValueLevelNow = 0;
+      }
+      int scoreAccumulated = getValueLevelNow + value;
+      await globalPreferences.saveScoreLevelThree(scoreAccumulated);
     }
   }
 }

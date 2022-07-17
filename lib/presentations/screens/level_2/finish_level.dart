@@ -7,19 +7,20 @@ import 'package:game_health_efa/logic/function/helper.dart';
 import 'package:game_health_efa/presentations/widgets/button_general_seconday.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class FinishScreenLevelA extends StatefulWidget {
+class FinishScreenLevelB extends StatefulWidget {
   final String title;
-  FinishScreenLevelA({Key? key, required this.title}) : super(key: key);
+  FinishScreenLevelB({Key? key, required this.title}) : super(key: key);
 
   @override
-  State<FinishScreenLevelA> createState() => _FinishScreenLevelAState();
+  State<FinishScreenLevelB> createState() => _FinishScreenLevelBState();
 }
 
-class _FinishScreenLevelAState extends State<FinishScreenLevelA> {
+class _FinishScreenLevelBState extends State<FinishScreenLevelB> {
   HelperFunction helperFunction = HelperFunction();
   GlobalPreferences globalPreferences = GlobalPreferences();
   String nameUser = "", genderUser = "", birthdateUser = "";
   int pointUser = 0;
+
   Future<Object> showDialogToLevels(BuildContext context, Size size) async {
     return showGeneralDialog(
       context: context,
@@ -132,7 +133,7 @@ class _FinishScreenLevelAState extends State<FinishScreenLevelA> {
     String nameUserString = await globalPreferences.getFullname();
     String birthdateUserString = await globalPreferences.getBirthdate();
     String genderUserString = await globalPreferences.getGender();
-    int pointUserInt = await globalPreferences.getScoreLevelOne();
+    int pointUserInt = await globalPreferences.getScoreLevelTwo();
 
     setState(() {
       nameUser = nameUserString;
