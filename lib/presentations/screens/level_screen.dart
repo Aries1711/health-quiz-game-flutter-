@@ -165,12 +165,12 @@ class _LevelsScreenState extends State<LevelsScreen> {
                                 } else if (levelChoose == 2) {
                                   await globalPreferences.saveScoreLevelTwo(0);
                                   Navigator.of(context)
-                                      .pushNamed('/level_a/question_a');
+                                      .pushNamed('/level_b/question_a');
                                 } else {
                                   await globalPreferences
                                       .saveScoreLevelThree(0);
                                   Navigator.of(context)
-                                      .pushNamed('/level_a/question_a');
+                                      .pushNamed('/level_c/question_a');
                                 }
                               },
                               backgroundColor: colorPurplePrimary,
@@ -320,7 +320,6 @@ class _LevelsScreenState extends State<LevelsScreen> {
     String birthdateUserString = await globalPreferences.getBirthdate();
     String genderUserString = await globalPreferences.getGender();
     int levelOpenInt = await globalPreferences.getLevelOpen();
-    print(genderUserString);
 
     setState(() {
       nameUser = nameUserString;
@@ -518,6 +517,7 @@ class _LevelsScreenState extends State<LevelsScreen> {
               backgroundColor: levelUserOpen > 1 ? colorWhite : colorGrey,
               onPress: () {
                 if (levelUserOpen > 1) {
+                  showDialogStart(context, size, 2);
                 } else {
                   helperFunction
                       .toastMessage("Maaf belum bisa pilih level ini");

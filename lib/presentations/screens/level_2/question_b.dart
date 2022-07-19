@@ -1,28 +1,30 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors_in_immutables, avoid_unnecessary_containers, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_countdown_timer/current_remaining_time.dart';
+import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 import 'package:game_health_efa/constant/colors.dart';
 import 'package:game_health_efa/logic/function/global_preferences.dart';
 import 'package:game_health_efa/logic/function/helper.dart';
-import 'package:game_health_efa/presentations/screens/level_1/question_b.dart';
-import 'package:game_health_efa/presentations/widgets/button_general.dart';
 import 'package:game_health_efa/presentations/widgets/button_general_seconday.dart';
 import 'package:game_health_efa/presentations/widgets/card_player.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class QuestionA extends StatefulWidget {
+class QuestionBTwo extends StatefulWidget {
   final String title;
-  QuestionA({Key? key, required this.title}) : super(key: key);
+  QuestionBTwo({Key? key, required this.title}) : super(key: key);
 
   @override
-  State<QuestionA> createState() => _QuestionAState();
+  State<QuestionBTwo> createState() => _QuestionBTwoState();
 }
 
-class _QuestionAState extends State<QuestionA> {
+class _QuestionBTwoState extends State<QuestionBTwo> {
   HelperFunction helperFunction = HelperFunction();
   GlobalPreferences globalPreferences = GlobalPreferences();
+  int endTime = DateTime.now().millisecondsSinceEpoch + 1000 * 60;
   String nameUser = "pemain", genderUser = "Laki-laki";
   int pointUser = 0;
+  bool answered = false;
 
   launchDescriptionUrl() async {
     // Uri surveyUrlPatch = Uri(
@@ -82,12 +84,12 @@ class _QuestionAState extends State<QuestionA> {
                     ),
                     Center(
                       child:
-                          Image.asset('assets/images/level_a/question_a.png'),
+                          Image.asset('assets/images/level_b/question_b.png'),
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 20, right: 20, top: 20),
                       child: Text(
-                        "Pada gambar tersebut ditampilkan kondisi perlukaan yang terjadi secara tiba-tiba pada bagian tubuh kita. Kondisi ini dikenal dengan istilah Cedera. Cedera dialami sekitar 4,7 juta orang di dunia setiap tahun.",
+                        "Luka adalah kenis cedera yang sering ditemukan. Luka dibagi menjadi dua jenis yaitu : luka tertutup dan luka terbuka. Luka terbuka merupakan merupakan kondisi kulit yang terbuka sehingga jaringan di bawahnya terkena lingkungan luar dan rentan mengalami pedarahan serta infeksi",
                         textAlign: TextAlign.start,
                         style: GoogleFonts.rubik(
                           textStyle: TextStyle(
@@ -99,47 +101,10 @@ class _QuestionAState extends State<QuestionA> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
-                        top: 20,
-                        left: 20,
-                        right: 20,
-                      ),
-                      child: ButtonGeneralSecondary(
-                        onPress: () {
-                          launchDescriptionUrl();
-                        },
-                        backgroundColor: colorPurplePrimary,
-                        widgetChild: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            Text(
-                              "VIDEO PENJELASAN",
-                              style: GoogleFonts.rubik(
-                                textStyle: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  color: colorWhite,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ),
-                            Image.asset('assets/images/youtube-button.png')
-                          ],
-                        ),
-                        textColor: colorWhite,
-                      ),
-                    ),
-                    Padding(
                       padding: const EdgeInsets.all(20),
                       child: ButtonGeneralSecondary(
                         onPress: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => QuestionB(
-                                title: 'number 2',
-                              ),
-                            ),
-                          );
+                          Navigator.of(context).pushNamed('/level_b/finish');
                         },
                         backgroundColor: colorPurplePrimary,
                         widgetChild: Text(
@@ -215,12 +180,12 @@ class _QuestionAState extends State<QuestionA> {
                     ),
                     Center(
                       child:
-                          Image.asset('assets/images/level_a/question_a.png'),
+                          Image.asset('assets/images/level_b/question_b.png'),
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 20, right: 20, top: 20),
                       child: Text(
-                        "Pada gambar tersebut ditampilkan kondisi perlukaan yang terjadi secara tiba-tiba pada bagian tubuh kita. Kondisi ini dikenal dengan istilah Cedera. Cedera dialami sekitar 4,7 juta orang di dunia setiap tahun.",
+                        "Luka adalah kenis cedera yang sering ditemukan. Luka dibagi menjadi dua jenis yaitu : luka tertutup dan luka terbuka. Luka terbuka merupakan merupakan kondisi kulit yang terbuka sehingga jaringan di bawahnya terkena lingkungan luar dan rentan mengalami pedarahan serta infeksi",
                         textAlign: TextAlign.start,
                         style: GoogleFonts.rubik(
                           textStyle: TextStyle(
@@ -232,47 +197,106 @@ class _QuestionAState extends State<QuestionA> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
-                        top: 20,
-                        left: 20,
-                        right: 20,
-                      ),
+                      padding: const EdgeInsets.all(20),
                       child: ButtonGeneralSecondary(
                         onPress: () {
-                          launchDescriptionUrl();
+                          Navigator.of(context).pushNamed('/level_a/finish');
                         },
                         backgroundColor: colorPurplePrimary,
-                        widgetChild: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            Text(
-                              "VIDEO PENJELASAN",
-                              style: GoogleFonts.rubik(
-                                textStyle: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  color: colorWhite,
-                                  fontSize: 14,
-                                ),
-                              ),
+                        widgetChild: Text(
+                          "LANJUT",
+                          style: GoogleFonts.rubik(
+                            textStyle: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              color: colorWhite,
+                              fontSize: 14,
                             ),
-                            Image.asset('assets/images/youtube-button.png')
-                          ],
+                          ),
                         ),
                         textColor: colorWhite,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        });
+      },
+    );
+  }
+
+  Future<Object> showDialogTimesUp(BuildContext context, Size size) async {
+    return showGeneralDialog(
+      context: context,
+      barrierDismissible: false,
+      transitionDuration: Duration(milliseconds: 500),
+      transitionBuilder: (context, animation, secondaryAnimation, child) {
+        return ScaleTransition(
+          child: child,
+          scale: Tween<double>(end: 1.0, begin: 0).animate(
+            CurvedAnimation(
+              parent: animation,
+              curve: Interval(0.00, 0.50, curve: Curves.linear),
+            ),
+          ),
+        );
+      },
+      pageBuilder: (context, animation, secondaryAnimation) {
+        return StatefulBuilder(
+            builder: (BuildContext context, StateSetter myState) {
+          return WillPopScope(
+            onWillPop: () async {
+              return false;
+            },
+            child: Dialog(
+              elevation: 0,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: 20, right: 20, top: 20, bottom: 10),
+                      child: Text(
+                        "WAKTU HABIS",
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.rubik(
+                          textStyle: TextStyle(
+                            fontWeight: FontWeight.w800,
+                            color: colorPurplePrimary,
+                            fontSize: 22,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Center(
+                      child: Image.asset('assets/images/icon-wrong.png'),
+                    ),
+                    Center(
+                      child:
+                          Image.asset('assets/images/level_b/question_b.png'),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 20, right: 20, top: 20),
+                      child: Text(
+                        "Luka adalah kenis cedera yang sering ditemukan. Luka dibagi menjadi dua jenis yaitu : luka tertutup dan luka terbuka. Luka terbuka merupakan merupakan kondisi kulit yang terbuka sehingga jaringan di bawahnya terkena lingkungan luar dan rentan mengalami pedarahan serta infeksi",
+                        textAlign: TextAlign.start,
+                        style: GoogleFonts.rubik(
+                          textStyle: TextStyle(
+                            fontWeight: FontWeight.w800,
+                            color: colorBlackSecondary,
+                            fontSize: 14,
+                          ),
+                        ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(20),
                       child: ButtonGeneralSecondary(
                         onPress: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => QuestionB(
-                                title: 'number 2',
-                              ),
-                            ),
-                          );
+                          Navigator.of(context).pushNamed('/level_b/finish');
                         },
                         backgroundColor: colorPurplePrimary,
                         widgetChild: Text(
@@ -301,9 +325,11 @@ class _QuestionAState extends State<QuestionA> {
   onLoadPage() async {
     String nameUserSave = await globalPreferences.getFullname();
     String genderUserSave = await globalPreferences.getGender();
+    int pointUserInt = await globalPreferences.getScoreLevelTwo();
     setState(() {
       nameUser = nameUserSave;
       genderUser = genderUserSave;
+      pointUser = pointUserInt;
     });
   }
 
@@ -337,7 +363,7 @@ class _QuestionAState extends State<QuestionA> {
                         Padding(
                           padding: EdgeInsets.only(top: 80),
                           child: Image.asset(
-                              'assets/images/level_a/question_a.png',
+                              'assets/images/level_b/question_b.png',
                               height: 250,
                               fit: BoxFit.contain),
                         )
@@ -354,9 +380,33 @@ class _QuestionAState extends State<QuestionA> {
                 genderUser: genderUser,
                 nameUser: nameUser,
                 skorUser: "Skor : $pointUser",
-                showTimer: false,
-                widgetTimer: SizedBox(
-                  height: 1,
+                showTimer: true,
+                widgetTimer: Center(
+                  child: CountdownTimer(
+                    endTime: endTime,
+                    onEnd: () async {
+                      if (answered = false) {
+                        await helperFunction.savePointSpesificLevel("2", 0);
+                        showDialogTimesUp(context, size);
+                      }
+                    },
+                    widgetBuilder: (_, CurrentRemainingTime? time) {
+                      if (time == null) {
+                        return Text('');
+                      }
+                      return Text(
+                        '0${time.min != null ? time.min : "0"}:${time.sec}',
+                        textAlign: TextAlign.start,
+                        style: GoogleFonts.inter(
+                          textStyle: TextStyle(
+                            fontWeight: FontWeight.w800,
+                            color: colorWhite,
+                            fontSize: 18,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ),
             ),
@@ -380,7 +430,7 @@ class _QuestionAState extends State<QuestionA> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Kondisi luka yang terjadi tiba-tiba pada tubuh kita disebut ?",
+                          "Luka seperti gambar di atas disebut?",
                           textAlign: TextAlign.start,
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(
@@ -396,12 +446,38 @@ class _QuestionAState extends State<QuestionA> {
                       padding: EdgeInsets.only(top: 10, left: 10),
                       child: ButtonGeneralSecondary(
                         onPress: () {
-                          helperFunction.savePointSpesificLevel("1", 5);
+                          setState(() {
+                            answered = true;
+                          });
+                          showDialogWrong(context, size);
+                        },
+                        backgroundColor: colorPurplePrimary,
+                        widgetChild: Text(
+                          "Luka tertutup",
+                          style: GoogleFonts.rubik(
+                            textStyle: TextStyle(
+                              fontWeight: FontWeight.w700,
+                              color: colorWhite,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ),
+                        textColor: colorWhite,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 10, left: 10),
+                      child: ButtonGeneralSecondary(
+                        onPress: () {
+                          setState(() {
+                            answered = true;
+                          });
+                          helperFunction.savePointSpesificLevel("2", 5);
                           showDialogCorrect(context, size);
                         },
                         backgroundColor: colorPurplePrimary,
                         widgetChild: Text(
-                          "Cedera",
+                          "Luka terbuka",
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(
                               fontWeight: FontWeight.w700,
@@ -417,31 +493,14 @@ class _QuestionAState extends State<QuestionA> {
                       padding: EdgeInsets.only(top: 10, left: 10),
                       child: ButtonGeneralSecondary(
                         onPress: () {
+                          setState(() {
+                            answered = true;
+                          });
                           showDialogWrong(context, size);
                         },
                         backgroundColor: colorPurplePrimary,
                         widgetChild: Text(
-                          "Pingsan",
-                          style: GoogleFonts.rubik(
-                            textStyle: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              color: colorWhite,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ),
-                        textColor: colorWhite,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 10, left: 10),
-                      child: ButtonGeneralSecondary(
-                        onPress: () {
-                          showDialogWrong(context, size);
-                        },
-                        backgroundColor: colorPurplePrimary,
-                        widgetChild: Text(
-                          "Darah",
+                          "Luka robek",
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(
                               fontWeight: FontWeight.w700,

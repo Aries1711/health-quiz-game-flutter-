@@ -104,6 +104,9 @@ class _FinishScreenLevelBState extends State<FinishScreenLevelB> {
                     padding: const EdgeInsets.all(20),
                     child: ButtonGeneralSecondary(
                       onPress: () {
+                        if (pointUser == 10) {
+                          globalPreferences.saveLevelOpen(3);
+                        }
                         Navigator.of(context).pushNamed('/level');
                       },
                       backgroundColor: colorPurplePrimary,
@@ -239,7 +242,7 @@ class _FinishScreenLevelBState extends State<FinishScreenLevelB> {
                         child: Align(
                           alignment: Alignment.center,
                           child: Text(
-                            "Skor akhir level 1",
+                            "Skor akhir level 2",
                             textAlign: TextAlign.center,
                             style: GoogleFonts.rubik(
                               textStyle: TextStyle(
@@ -256,7 +259,7 @@ class _FinishScreenLevelBState extends State<FinishScreenLevelB> {
                         child: Align(
                           alignment: Alignment.center,
                           child: Text(
-                            "$pointUser (${(pointUser / 35) * 100}%)",
+                            "$pointUser (${((pointUser / 35) * 100).round()}%)",
                             textAlign: TextAlign.center,
                             style: GoogleFonts.rubik(
                               textStyle: TextStyle(
