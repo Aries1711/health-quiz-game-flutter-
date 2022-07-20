@@ -96,7 +96,7 @@ class HelperFunction {
               ),
               child: Container(
                 width: size.width,
-                height: size.height * 2.2,
+                height: size.height * 0.3,
                 child: Column(
                   children: [
                     Center(
