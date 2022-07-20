@@ -385,7 +385,7 @@ class _QuestionBTwoState extends State<QuestionBTwo> {
                   child: CountdownTimer(
                     endTime: endTime,
                     onEnd: () async {
-                      if (answered = false) {
+                      if (answered == false) {
                         await helperFunction.savePointSpesificLevel("2", 0);
                         showDialogTimesUp(context, size);
                       }

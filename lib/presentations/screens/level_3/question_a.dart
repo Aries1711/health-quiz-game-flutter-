@@ -6,7 +6,8 @@ import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 import 'package:game_health_efa/constant/colors.dart';
 import 'package:game_health_efa/logic/function/global_preferences.dart';
 import 'package:game_health_efa/logic/function/helper.dart';
-import 'package:game_health_efa/presentations/screens/level_1/question_b.dart';
+import 'package:game_health_efa/presentations/screens/level_2/question_b.dart';
+import 'package:game_health_efa/presentations/screens/level_3/question_b.dart';
 import 'package:game_health_efa/presentations/widgets/button_general_seconday.dart';
 import 'package:game_health_efa/presentations/widgets/card_player.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -25,6 +26,7 @@ class _QuestionAThreeState extends State<QuestionAThree> {
   int endTime = DateTime.now().millisecondsSinceEpoch + 1000 * 60;
   String nameUser = "pemain", genderUser = "Laki-laki";
   int pointUser = 0;
+  bool answered = false;
 
   launchDescriptionUrl() async {
     // Uri surveyUrlPatch = Uri(
@@ -84,12 +86,12 @@ class _QuestionAThreeState extends State<QuestionAThree> {
                     ),
                     Center(
                       child:
-                          Image.asset('assets/images/level_a/question_a.png'),
+                          Image.asset('assets/images/level_c/question_a.png'),
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 20, right: 20, top: 20),
                       child: Text(
-                        "Pada gambar tersebut ditampilkan kondisi perlukaan yang terjadi secara tiba-tiba pada bagian tubuh kita. Kondisi ini dikenal dengan istilah Cedera. Cedera dialami sekitar 4,7 juta orang di dunia setiap tahun.",
+                        "cedera yang terjadi pada otot, tulang dan sendi ekstremitas meskipun jarang berakibat fatal bila terjadi, kondisi tersebut dapat mengakibatkan disabilitas dalam jangka waktu pendek ataupun panjang.",
                         textAlign: TextAlign.start,
                         style: GoogleFonts.rubik(
                           textStyle: TextStyle(
@@ -101,43 +103,13 @@ class _QuestionAThreeState extends State<QuestionAThree> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
-                        top: 20,
-                        left: 20,
-                        right: 20,
-                      ),
-                      child: ButtonGeneralSecondary(
-                        onPress: () {
-                          launchDescriptionUrl();
-                        },
-                        backgroundColor: colorPurplePrimary,
-                        widgetChild: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            Text(
-                              "VIDEO PENJELASAN",
-                              style: GoogleFonts.rubik(
-                                textStyle: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  color: colorWhite,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ),
-                            Image.asset('assets/images/youtube-button.png')
-                          ],
-                        ),
-                        textColor: colorWhite,
-                      ),
-                    ),
-                    Padding(
                       padding: const EdgeInsets.all(20),
                       child: ButtonGeneralSecondary(
                         onPress: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => QuestionB(
+                              builder: (_) => QuestionBThree(
                                 title: 'number 2',
                               ),
                             ),
@@ -217,12 +189,12 @@ class _QuestionAThreeState extends State<QuestionAThree> {
                     ),
                     Center(
                       child:
-                          Image.asset('assets/images/level_a/question_a.png'),
+                          Image.asset('assets/images/level_c/question_a.png'),
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 20, right: 20, top: 20),
                       child: Text(
-                        "Pada gambar tersebut ditampilkan kondisi perlukaan yang terjadi secara tiba-tiba pada bagian tubuh kita. Kondisi ini dikenal dengan istilah Cedera. Cedera dialami sekitar 4,7 juta orang di dunia setiap tahun.",
+                        "cedera yang terjadi pada otot, tulang dan sendi ekstremitas meskipun jarang berakibat fatal bila terjadi, kondisi tersebut dapat mengakibatkan disabilitas dalam jangka waktu pendek ataupun panjang.",
                         textAlign: TextAlign.start,
                         style: GoogleFonts.rubik(
                           textStyle: TextStyle(
@@ -234,40 +206,17 @@ class _QuestionAThreeState extends State<QuestionAThree> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
-                        top: 20,
-                        left: 20,
-                        right: 20,
-                      ),
-                      child: ButtonGeneralSecondary(
-                        onPress: () {
-                          launchDescriptionUrl();
-                        },
-                        backgroundColor: colorPurplePrimary,
-                        widgetChild: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            Text(
-                              "VIDEO PENJELASAN",
-                              style: GoogleFonts.rubik(
-                                textStyle: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  color: colorWhite,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ),
-                            Image.asset('assets/images/youtube-button.png')
-                          ],
-                        ),
-                        textColor: colorWhite,
-                      ),
-                    ),
-                    Padding(
                       padding: const EdgeInsets.all(20),
                       child: ButtonGeneralSecondary(
                         onPress: () {
-                          Navigator.of(context).pushNamed('/level_a/finish');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => QuestionBThree(
+                                title: 'number 2',
+                              ),
+                            ),
+                          );
                         },
                         backgroundColor: colorPurplePrimary,
                         widgetChild: Text(
@@ -343,12 +292,12 @@ class _QuestionAThreeState extends State<QuestionAThree> {
                     ),
                     Center(
                       child:
-                          Image.asset('assets/images/level_a/question_a.png'),
+                          Image.asset('assets/images/level_c/question_a.png'),
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 20, right: 20, top: 20),
                       child: Text(
-                        "Pada gambar tersebut ditampilkan kondisi perlukaan yang terjadi secara tiba-tiba pada bagian tubuh kita. Kondisi ini dikenal dengan istilah Cedera. Cedera dialami sekitar 4,7 juta orang di dunia setiap tahun.",
+                        "cedera yang terjadi pada otot, tulang dan sendi ekstremitas meskipun jarang berakibat fatal bila terjadi, kondisi tersebut dapat mengakibatkan disabilitas dalam jangka waktu pendek ataupun panjang.",
                         textAlign: TextAlign.start,
                         style: GoogleFonts.rubik(
                           textStyle: TextStyle(
@@ -360,40 +309,17 @@ class _QuestionAThreeState extends State<QuestionAThree> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
-                        top: 20,
-                        left: 20,
-                        right: 20,
-                      ),
-                      child: ButtonGeneralSecondary(
-                        onPress: () {
-                          launchDescriptionUrl();
-                        },
-                        backgroundColor: colorPurplePrimary,
-                        widgetChild: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            Text(
-                              "VIDEO PENJELASAN",
-                              style: GoogleFonts.rubik(
-                                textStyle: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  color: colorWhite,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ),
-                            Image.asset('assets/images/youtube-button.png')
-                          ],
-                        ),
-                        textColor: colorWhite,
-                      ),
-                    ),
-                    Padding(
                       padding: const EdgeInsets.all(20),
                       child: ButtonGeneralSecondary(
                         onPress: () {
-                          Navigator.of(context).pushNamed('/level_b/finish');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => QuestionBThree(
+                                title: 'number 2',
+                              ),
+                            ),
+                          );
                         },
                         backgroundColor: colorPurplePrimary,
                         widgetChild: Text(
@@ -458,7 +384,7 @@ class _QuestionAThreeState extends State<QuestionAThree> {
                         Padding(
                           padding: EdgeInsets.only(top: 80),
                           child: Image.asset(
-                              'assets/images/level_a/question_a.png',
+                              'assets/images/level_c/question_a.png',
                               height: 250,
                               fit: BoxFit.contain),
                         )
@@ -475,29 +401,33 @@ class _QuestionAThreeState extends State<QuestionAThree> {
                 genderUser: genderUser,
                 nameUser: nameUser,
                 skorUser: "Skor : $pointUser",
-                showTimer: false,
-                widgetTimer: CountdownTimer(
-                  endTime: endTime,
-                  onEnd: () async {
-                    await helperFunction.savePointSpesificLevel("3", -1);
-                    showDialogTimesUp(context, size);
-                  },
-                  widgetBuilder: (_, CurrentRemainingTime? time) {
-                    if (time == null) {
-                      return Text('');
-                    }
-                    return Text(
-                      '0${time.min != null ? time.min : "0"}:${time.sec}',
-                      textAlign: TextAlign.start,
-                      style: GoogleFonts.inter(
-                        textStyle: TextStyle(
-                          fontWeight: FontWeight.w800,
-                          color: colorWhite,
-                          fontSize: 14,
+                showTimer: true,
+                widgetTimer: Center(
+                  child: CountdownTimer(
+                    endTime: endTime,
+                    onEnd: () async {
+                      if (answered == false) {
+                        await helperFunction.savePointSpesificLevel("2", 0);
+                        showDialogTimesUp(context, size);
+                      }
+                    },
+                    widgetBuilder: (_, CurrentRemainingTime? time) {
+                      if (time == null) {
+                        return Text('');
+                      }
+                      return Text(
+                        '0${time.min != null ? time.min : "0"}:${time.sec}',
+                        textAlign: TextAlign.start,
+                        style: GoogleFonts.inter(
+                          textStyle: TextStyle(
+                            fontWeight: FontWeight.w800,
+                            color: colorWhite,
+                            fontSize: 18,
+                          ),
                         ),
-                      ),
-                    );
-                  },
+                      );
+                    },
+                  ),
                 ),
               ),
             ),
@@ -521,7 +451,7 @@ class _QuestionAThreeState extends State<QuestionAThree> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Kondisi luka yang terjadi tiba-tiba pada tubuh kita disebut ?",
+                          "Dampak cedera yang terjadi pada otot maupun ekstremitas seperti keseleo yang paling buruk dapat mengakibatkan kondisi ...",
                           textAlign: TextAlign.start,
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(
@@ -537,12 +467,15 @@ class _QuestionAThreeState extends State<QuestionAThree> {
                       padding: EdgeInsets.only(top: 10, left: 10),
                       child: ButtonGeneralSecondary(
                         onPress: () {
-                          helperFunction.savePointSpesificLevel("2", 5);
+                          setState(() {
+                            answered = true;
+                          });
+                          helperFunction.savePointSpesificLevel("3", 5);
                           showDialogCorrect(context, size);
                         },
                         backgroundColor: colorPurplePrimary,
                         widgetChild: Text(
-                          "Cedera",
+                          "Risiko kecacatan",
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(
                               fontWeight: FontWeight.w700,
@@ -558,11 +491,15 @@ class _QuestionAThreeState extends State<QuestionAThree> {
                       padding: EdgeInsets.only(top: 10, left: 10),
                       child: ButtonGeneralSecondary(
                         onPress: () {
+                          setState(() {
+                            answered = true;
+                          });
+                          helperFunction.savePointSpesificLevel("3", -1);
                           showDialogWrong(context, size);
                         },
                         backgroundColor: colorPurplePrimary,
                         widgetChild: Text(
-                          "Pingsan",
+                          "Risiko kematian",
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(
                               fontWeight: FontWeight.w700,
@@ -578,11 +515,15 @@ class _QuestionAThreeState extends State<QuestionAThree> {
                       padding: EdgeInsets.only(top: 10, left: 10),
                       child: ButtonGeneralSecondary(
                         onPress: () {
+                          setState(() {
+                            answered = true;
+                          });
+                          helperFunction.savePointSpesificLevel("3", -1);
                           showDialogWrong(context, size);
                         },
                         backgroundColor: colorPurplePrimary,
                         widgetChild: Text(
-                          "Darah",
+                          "Risiko kehilangan",
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(
                               fontWeight: FontWeight.w700,

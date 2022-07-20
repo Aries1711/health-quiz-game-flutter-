@@ -21,223 +21,6 @@ class _FinishScreenLevelCState extends State<FinishScreenLevelC> {
   String nameUser = "", genderUser = "", birthdateUser = "";
   int pointUser = 0;
 
-  Future<Object> showDialogToIntro(BuildContext context, Size size) async {
-    return showGeneralDialog(
-      context: context,
-      barrierDismissible: false,
-      transitionDuration: Duration(milliseconds: 500),
-      transitionBuilder: (context, animation, secondaryAnimation, child) {
-        return ScaleTransition(
-          child: child,
-          scale: Tween<double>(end: 1.0, begin: 0).animate(
-            CurvedAnimation(
-              parent: animation,
-              curve: Interval(0.00, 0.50, curve: Curves.linear),
-            ),
-          ),
-        );
-      },
-      pageBuilder: (context, animation, secondaryAnimation) {
-        return StatefulBuilder(
-            builder: (BuildContext context, StateSetter myState) {
-          return Dialog(
-            elevation: 0,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            child: SingleChildScrollView(
-              child: Column(
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: 20, right: 20, top: 20, bottom: 10),
-                    child: Text(
-                      "YAKIN ?",
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.rubik(
-                        textStyle: TextStyle(
-                          fontWeight: FontWeight.w800,
-                          color: colorPurplePrimary,
-                          fontSize: 22,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 20, right: 20, top: 20),
-                    child: Text(
-                      "Kamu akan kembali kehalaman utama semua progress kamu akan direset",
-                      textAlign: TextAlign.start,
-                      style: GoogleFonts.rubik(
-                        textStyle: TextStyle(
-                          fontWeight: FontWeight.w800,
-                          color: colorBlackSecondary,
-                          fontSize: 14,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      top: 20,
-                      left: 20,
-                      right: 20,
-                    ),
-                    child: ButtonGeneralSecondary(
-                      onPress: () {
-                        Navigator.pop(context);
-                      },
-                      backgroundColor: colorGreySoft,
-                      widgetChild: Text(
-                        "BATAL",
-                        style: GoogleFonts.rubik(
-                          textStyle: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            color: colorBlackPrimary,
-                            fontSize: 14,
-                          ),
-                        ),
-                      ),
-                      textColor: colorWhite,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: ButtonGeneralSecondary(
-                      onPress: () async {
-                        await globalPreferences.resetData();
-                        await Navigator.of(context).pushNamed('/');
-                      },
-                      backgroundColor: colorPurplePrimary,
-                      widgetChild: Text(
-                        "LANJUT",
-                        style: GoogleFonts.rubik(
-                          textStyle: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            color: colorWhite,
-                            fontSize: 14,
-                          ),
-                        ),
-                      ),
-                      textColor: colorWhite,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          );
-        });
-      },
-    );
-  }
-
-  Future<Object> showDialogToLevels(BuildContext context, Size size) async {
-    return showGeneralDialog(
-      context: context,
-      barrierDismissible: false,
-      transitionDuration: Duration(milliseconds: 500),
-      transitionBuilder: (context, animation, secondaryAnimation, child) {
-        return ScaleTransition(
-          child: child,
-          scale: Tween<double>(end: 1.0, begin: 0).animate(
-            CurvedAnimation(
-              parent: animation,
-              curve: Interval(0.00, 0.50, curve: Curves.linear),
-            ),
-          ),
-        );
-      },
-      pageBuilder: (context, animation, secondaryAnimation) {
-        return StatefulBuilder(
-            builder: (BuildContext context, StateSetter myState) {
-          return Dialog(
-            elevation: 0,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            child: SingleChildScrollView(
-              child: Column(
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: 20, right: 20, top: 20, bottom: 10),
-                    child: Text(
-                      "SEMANGAT!!",
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.rubik(
-                        textStyle: TextStyle(
-                          fontWeight: FontWeight.w800,
-                          color: colorPurplePrimary,
-                          fontSize: 22,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 20, right: 20, top: 20),
-                    child: Text(
-                      "Yuk mulai dengan level baru, dan buktikan kalo kamu bisa!!",
-                      textAlign: TextAlign.start,
-                      style: GoogleFonts.rubik(
-                        textStyle: TextStyle(
-                          fontWeight: FontWeight.w800,
-                          color: colorBlackSecondary,
-                          fontSize: 14,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      top: 20,
-                      left: 20,
-                      right: 20,
-                    ),
-                    child: ButtonGeneralSecondary(
-                      onPress: () {
-                        Navigator.pop(context);
-                      },
-                      backgroundColor: colorGreySoft,
-                      widgetChild: Text(
-                        "BATAL",
-                        style: GoogleFonts.rubik(
-                          textStyle: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            color: colorBlackPrimary,
-                            fontSize: 14,
-                          ),
-                        ),
-                      ),
-                      textColor: colorWhite,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: ButtonGeneralSecondary(
-                      onPress: () {
-                        Navigator.of(context).pushNamed('/level');
-                      },
-                      backgroundColor: colorPurplePrimary,
-                      widgetChild: Text(
-                        "MULAI",
-                        style: GoogleFonts.rubik(
-                          textStyle: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            color: colorWhite,
-                            fontSize: 14,
-                          ),
-                        ),
-                      ),
-                      textColor: colorWhite,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          );
-        });
-      },
-    );
-  }
-
   onLoadPage() async {
     String nameUserString = await globalPreferences.getFullname();
     String birthdateUserString = await globalPreferences.getBirthdate();
@@ -348,7 +131,7 @@ class _FinishScreenLevelCState extends State<FinishScreenLevelC> {
                         child: Align(
                           alignment: Alignment.center,
                           child: Text(
-                            "Skor akhir level 1",
+                            "Skor akhir level 3",
                             textAlign: TextAlign.center,
                             style: GoogleFonts.rubik(
                               textStyle: TextStyle(
@@ -365,7 +148,7 @@ class _FinishScreenLevelCState extends State<FinishScreenLevelC> {
                         child: Align(
                           alignment: Alignment.center,
                           child: Text(
-                            "$pointUser (${(pointUser / 35) * 100}%)",
+                            "$pointUser (${((pointUser / 35) * 100).round()}%)",
                             textAlign: TextAlign.center,
                             style: GoogleFonts.rubik(
                               textStyle: TextStyle(
@@ -391,35 +174,9 @@ class _FinishScreenLevelCState extends State<FinishScreenLevelC> {
                 alignment: Alignment.center,
                 child: ButtonGeneralSecondary(
                   onPress: () {
-                    showDialogToLevels(context, size);
+                    Navigator.of(context).pushNamed('/level');
                   },
                   backgroundColor: colorPurplePrimary,
-                  widgetChild: Text(
-                    "MAIN LAGI",
-                    style: GoogleFonts.rubik(
-                      textStyle: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        color: colorWhite,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ),
-                  textColor: colorWhite,
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: 30,
-            child: Container(
-              width: size.width,
-              child: Align(
-                alignment: Alignment.center,
-                child: ButtonGeneralSecondary(
-                  onPress: () {
-                    showDialogToIntro(context, size);
-                  },
-                  backgroundColor: colorOrange,
                   widgetChild: Text(
                     "KE HALAMAN UTAMA",
                     style: GoogleFonts.rubik(
@@ -434,7 +191,7 @@ class _FinishScreenLevelCState extends State<FinishScreenLevelC> {
                 ),
               ),
             ),
-          ),
+          )
         ],
       ),
     );

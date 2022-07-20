@@ -37,52 +37,57 @@ class _IntroScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Scaffold(
-      backgroundColor: colorYellowPrimary,
-      body: SingleChildScrollView(
-        child: Stack(
-          children: <Widget>[
-            Container(
-              width: size.width,
-              height: size.height,
-            ),
-            Positioned(
-              top: size.height * 0.2,
-              width: size.width,
-              child: Center(
-                child: Container(
-                  margin: EdgeInsets.only(top: 120),
-                  width: size.width * 0.6,
-                  child: Image.asset(
-                    "assets/images/logo-efa.png",
-                    fit: BoxFit.contain,
+    return WillPopScope(
+      onWillPop: () async {
+        return false;
+      },
+      child: Scaffold(
+        backgroundColor: colorYellowPrimary,
+        body: SingleChildScrollView(
+          child: Stack(
+            children: <Widget>[
+              Container(
+                width: size.width,
+                height: size.height,
+              ),
+              Positioned(
+                top: size.height * 0.2,
+                width: size.width,
+                child: Center(
+                  child: Container(
+                    margin: EdgeInsets.only(top: 120),
                     width: size.width * 0.6,
+                    child: Image.asset(
+                      "assets/images/logo-efa.png",
+                      fit: BoxFit.contain,
+                      width: size.width * 0.6,
+                    ),
                   ),
                 ),
               ),
-            ),
-            Positioned(
-              bottom: 60,
-              width: size.width,
-              child: Padding(
-                padding: EdgeInsets.only(left: 40, right: 40, top: 80),
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    "Education First Game",
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.rubik(
-                      textStyle: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        color: colorBlackSecondary,
-                        fontSize: 26,
+              Positioned(
+                bottom: 60,
+                width: size.width,
+                child: Padding(
+                  padding: EdgeInsets.only(left: 40, right: 40, top: 80),
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Education First Game",
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.rubik(
+                        textStyle: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: colorBlackSecondary,
+                          fontSize: 26,
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
