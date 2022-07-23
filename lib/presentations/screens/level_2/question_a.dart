@@ -90,7 +90,7 @@ class _QuestionATwoState extends State<QuestionATwo> {
                     Padding(
                       padding: EdgeInsets.only(left: 20, right: 20, top: 20),
                       child: Text(
-                        "Luka adalah kenis cedera yang sering ditemukan. Luka dibagi menjadi dua jenis yaitu : luka tertutup dan luka terbuka. Luka tertutup merupakan kondisi luka dimana kulit tetap dalam keadaan utuh dan jaringan bawahnya tidak langsung terkena dunia luar",
+                        "Jawaban : Luka tertutup\nPenjelasan : Luka adalah jenis cedera yang sering ditemukan. Luka dibagi menjadi dua jenis yaitu : luka tertutup dan luka terbuka. Luka tertutup merupakan kondisi luka dimana kulit tetap dalam keadaan utuh dan jaringan bawahnya tidak langsung terkena dunia luar",
                         textAlign: TextAlign.start,
                         style: GoogleFonts.rubik(
                           textStyle: TextStyle(
@@ -193,7 +193,7 @@ class _QuestionATwoState extends State<QuestionATwo> {
                     Padding(
                       padding: EdgeInsets.only(left: 20, right: 20, top: 20),
                       child: Text(
-                        "Luka adalah kenis cedera yang sering ditemukan. Luka dibagi menjadi dua jenis yaitu : luka tertutup dan luka terbuka. Luka tertutup merupakan kondisi luka dimana kulit tetap dalam keadaan utuh dan jaringan bawahnya tidak langsung terkena dunia luar",
+                        "Jawaban : Luka tertutup\nPenjelasan : Luka adalah jenis cedera yang sering ditemukan. Luka dibagi menjadi dua jenis yaitu : luka tertutup dan luka terbuka. Luka tertutup merupakan kondisi luka dimana kulit tetap dalam keadaan utuh dan jaringan bawahnya tidak langsung terkena dunia luar",
                         textAlign: TextAlign.start,
                         style: GoogleFonts.rubik(
                           textStyle: TextStyle(
@@ -296,7 +296,7 @@ class _QuestionATwoState extends State<QuestionATwo> {
                     Padding(
                       padding: EdgeInsets.only(left: 20, right: 20, top: 20),
                       child: Text(
-                        "Luka adalah kenis cedera yang sering ditemukan. Luka dibagi menjadi dua jenis yaitu : luka tertutup dan luka terbuka. Luka tertutup merupakan kondisi luka dimana kulit tetap dalam keadaan utuh dan jaringan bawahnya tidak langsung terkena dunia luar",
+                        "Jawaban : Luka tertutup\nPenjelasan : Luka adalah jenis cedera yang sering ditemukan. Luka dibagi menjadi dua jenis yaitu : luka tertutup dan luka terbuka. Luka tertutup merupakan kondisi luka dimana kulit tetap dalam keadaan utuh dan jaringan bawahnya tidak langsung terkena dunia luar",
                         textAlign: TextAlign.start,
                         style: GoogleFonts.rubik(
                           textStyle: TextStyle(

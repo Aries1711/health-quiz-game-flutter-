@@ -6,6 +6,7 @@ import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 import 'package:game_health_efa/constant/colors.dart';
 import 'package:game_health_efa/logic/function/global_preferences.dart';
 import 'package:game_health_efa/logic/function/helper.dart';
+import 'package:game_health_efa/presentations/screens/level_2/question_c.dart';
 import 'package:game_health_efa/presentations/widgets/button_general_seconday.dart';
 import 'package:game_health_efa/presentations/widgets/card_player.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -89,7 +90,7 @@ class _QuestionBTwoState extends State<QuestionBTwo> {
                     Padding(
                       padding: EdgeInsets.only(left: 20, right: 20, top: 20),
                       child: Text(
-                        "Luka adalah kenis cedera yang sering ditemukan. Luka dibagi menjadi dua jenis yaitu : luka tertutup dan luka terbuka. Luka terbuka merupakan merupakan kondisi kulit yang terbuka sehingga jaringan di bawahnya terkena lingkungan luar dan rentan mengalami pedarahan serta infeksi",
+                        "Jawaban : Luka terbuka\nPenjelasan : Luka adalah jenis cedera yang sering ditemukan. Luka dibagi menjadi dua jenis yaitu : luka tertutup dan luka terbuka. Luka terbuka merupakan merupakan kondisi kulit yang terbuka sehingga jaringan di bawahnya terkena lingkungan luar dan rentan mengalami pedarahan serta infeksi",
                         textAlign: TextAlign.start,
                         style: GoogleFonts.rubik(
                           textStyle: TextStyle(
@@ -104,7 +105,14 @@ class _QuestionBTwoState extends State<QuestionBTwo> {
                       padding: const EdgeInsets.all(20),
                       child: ButtonGeneralSecondary(
                         onPress: () {
-                          Navigator.of(context).pushNamed('/level_b/finish');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => QuestionCTwo(
+                                title: 'number 2',
+                              ),
+                            ),
+                          );
                         },
                         backgroundColor: colorPurplePrimary,
                         widgetChild: Text(
@@ -185,7 +193,7 @@ class _QuestionBTwoState extends State<QuestionBTwo> {
                     Padding(
                       padding: EdgeInsets.only(left: 20, right: 20, top: 20),
                       child: Text(
-                        "Luka adalah kenis cedera yang sering ditemukan. Luka dibagi menjadi dua jenis yaitu : luka tertutup dan luka terbuka. Luka terbuka merupakan merupakan kondisi kulit yang terbuka sehingga jaringan di bawahnya terkena lingkungan luar dan rentan mengalami pedarahan serta infeksi",
+                        "Jawaban : Luka terbuka\nPenjelasan : Luka adalah jenis cedera yang sering ditemukan. Luka dibagi menjadi dua jenis yaitu : luka tertutup dan luka terbuka. Luka terbuka merupakan merupakan kondisi kulit yang terbuka sehingga jaringan di bawahnya terkena lingkungan luar dan rentan mengalami pedarahan serta infeksi",
                         textAlign: TextAlign.start,
                         style: GoogleFonts.rubik(
                           textStyle: TextStyle(
@@ -200,7 +208,14 @@ class _QuestionBTwoState extends State<QuestionBTwo> {
                       padding: const EdgeInsets.all(20),
                       child: ButtonGeneralSecondary(
                         onPress: () {
-                          Navigator.of(context).pushNamed('/level_a/finish');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => QuestionCTwo(
+                                title: 'number 2',
+                              ),
+                            ),
+                          );
                         },
                         backgroundColor: colorPurplePrimary,
                         widgetChild: Text(
@@ -281,7 +296,7 @@ class _QuestionBTwoState extends State<QuestionBTwo> {
                     Padding(
                       padding: EdgeInsets.only(left: 20, right: 20, top: 20),
                       child: Text(
-                        "Luka adalah kenis cedera yang sering ditemukan. Luka dibagi menjadi dua jenis yaitu : luka tertutup dan luka terbuka. Luka terbuka merupakan merupakan kondisi kulit yang terbuka sehingga jaringan di bawahnya terkena lingkungan luar dan rentan mengalami pedarahan serta infeksi",
+                        "Jawaban : Luka terbuka\nPenjelasan : Luka adalah jenis cedera yang sering ditemukan. Luka dibagi menjadi dua jenis yaitu : luka tertutup dan luka terbuka. Luka terbuka merupakan merupakan kondisi kulit yang terbuka sehingga jaringan di bawahnya terkena lingkungan luar dan rentan mengalami pedarahan serta infeksi",
                         textAlign: TextAlign.start,
                         style: GoogleFonts.rubik(
                           textStyle: TextStyle(
@@ -296,7 +311,14 @@ class _QuestionBTwoState extends State<QuestionBTwo> {
                       padding: const EdgeInsets.all(20),
                       child: ButtonGeneralSecondary(
                         onPress: () {
-                          Navigator.of(context).pushNamed('/level_b/finish');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => QuestionCTwo(
+                                title: 'number 2',
+                              ),
+                            ),
+                          );
                         },
                         backgroundColor: colorPurplePrimary,
                         widgetChild: Text(
