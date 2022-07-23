@@ -4,21 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:game_health_efa/constant/colors.dart';
 import 'package:game_health_efa/logic/function/global_preferences.dart';
 import 'package:game_health_efa/logic/function/helper.dart';
-import 'package:game_health_efa/presentations/screens/level_1/question_b.dart';
+import 'package:game_health_efa/presentations/screens/level_1/question_d.dart';
+import 'package:game_health_efa/presentations/screens/level_1/question_f.dart';
 import 'package:game_health_efa/presentations/widgets/button_general.dart';
 import 'package:game_health_efa/presentations/widgets/button_general_seconday.dart';
 import 'package:game_health_efa/presentations/widgets/card_player.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class QuestionA extends StatefulWidget {
+class QuestionE extends StatefulWidget {
   final String title;
-  QuestionA({Key? key, required this.title}) : super(key: key);
+  QuestionE({Key? key, required this.title}) : super(key: key);
 
   @override
-  State<QuestionA> createState() => _QuestionAState();
+  State<QuestionE> createState() => _QuestionEState();
 }
 
-class _QuestionAState extends State<QuestionA> {
+class _QuestionEState extends State<QuestionE> {
   HelperFunction helperFunction = HelperFunction();
   GlobalPreferences globalPreferences = GlobalPreferences();
   String nameUser = "pemain", genderUser = "Laki-laki";
@@ -82,12 +83,12 @@ class _QuestionAState extends State<QuestionA> {
                     ),
                     Center(
                       child:
-                          Image.asset('assets/images/level_a/question_a.png'),
+                          Image.asset('assets/images/level_a/question_e.png'),
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 20, right: 20, top: 20),
                       child: Text(
-                        " Jawaban Benar : Cedera\n\nPada gambar tersebut ditampilkan kondisi perlukaan yang terjadi secara tiba-tiba pada bagian tubuh kita. Kondisi ini dikenal dengan istilah Cedera. Cedera dialami sekitar 4,7 juta orang di dunia setiap tahun.",
+                        "Jawaban: Pertolongan Pertama \nTerjadinya cedera pada seseorang memerlukan sebuah tindakan yang harus segera dilakukan dikenal dengan pertolongan pertama. Tujuan pemberian pertolongan pertama untuk memberikan tindakan awal yang cepat dan efektif untuk mengurangi dampak yang mungkin muncul. Sehingga dampak buruk yang mungkin terjadi dapat diminimalisir.",
                         textAlign: TextAlign.start,
                         style: GoogleFonts.rubik(
                           textStyle: TextStyle(
@@ -99,43 +100,13 @@ class _QuestionAState extends State<QuestionA> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
-                        top: 20,
-                        left: 20,
-                        right: 20,
-                      ),
-                      child: ButtonGeneralSecondary(
-                        onPress: () {
-                          launchDescriptionUrl();
-                        },
-                        backgroundColor: colorPurplePrimary,
-                        widgetChild: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            Text(
-                              "VIDEO PENJELASAN",
-                              style: GoogleFonts.rubik(
-                                textStyle: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  color: colorWhite,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ),
-                            Image.asset('assets/images/youtube-button.png')
-                          ],
-                        ),
-                        textColor: colorWhite,
-                      ),
-                    ),
-                    Padding(
                       padding: const EdgeInsets.all(20),
                       child: ButtonGeneralSecondary(
                         onPress: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => QuestionB(
+                              builder: (_) => QuestionF(
                                 title: 'number 2',
                               ),
                             ),
@@ -215,12 +186,12 @@ class _QuestionAState extends State<QuestionA> {
                     ),
                     Center(
                       child:
-                          Image.asset('assets/images/level_a/question_a.png'),
+                          Image.asset('assets/images/level_a/question_e.png'),
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 20, right: 20, top: 20),
                       child: Text(
-                        " Jawaban Benar : Cedera\nPada gambar tersebut ditampilkan kondisi perlukaan yang terjadi secara tiba-tiba pada bagian tubuh kita. Kondisi ini dikenal dengan istilah Cedera. Cedera dialami sekitar 4,7 juta orang di dunia setiap tahun.",
+                        "Jawaban: Pertolongan Pertama \nTerjadinya cedera pada seseorang memerlukan sebuah tindakan yang harus segera dilakukan dikenal dengan pertolongan pertama. Tujuan pemberian pertolongan pertama untuk memberikan tindakan awal yang cepat dan efektif untuk mengurangi dampak yang mungkin muncul. Sehingga dampak buruk yang mungkin terjadi dapat diminimalisir.",
                         textAlign: TextAlign.start,
                         style: GoogleFonts.rubik(
                           textStyle: TextStyle(
@@ -232,43 +203,13 @@ class _QuestionAState extends State<QuestionA> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
-                        top: 20,
-                        left: 20,
-                        right: 20,
-                      ),
-                      child: ButtonGeneralSecondary(
-                        onPress: () {
-                          launchDescriptionUrl();
-                        },
-                        backgroundColor: colorPurplePrimary,
-                        widgetChild: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            Text(
-                              "VIDEO PENJELASAN",
-                              style: GoogleFonts.rubik(
-                                textStyle: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  color: colorWhite,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ),
-                            Image.asset('assets/images/youtube-button.png')
-                          ],
-                        ),
-                        textColor: colorWhite,
-                      ),
-                    ),
-                    Padding(
                       padding: const EdgeInsets.all(20),
                       child: ButtonGeneralSecondary(
                         onPress: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => QuestionB(
+                              builder: (_) => QuestionF(
                                 title: 'number 2',
                               ),
                             ),
@@ -301,9 +242,11 @@ class _QuestionAState extends State<QuestionA> {
   onLoadPage() async {
     String nameUserSave = await globalPreferences.getFullname();
     String genderUserSave = await globalPreferences.getGender();
+    int pointUserInt = await globalPreferences.getScoreLevelOne();
     setState(() {
       nameUser = nameUserSave;
       genderUser = genderUserSave;
+      pointUser = pointUserInt;
     });
   }
 
@@ -337,7 +280,7 @@ class _QuestionAState extends State<QuestionA> {
                         Padding(
                           padding: EdgeInsets.only(top: 80),
                           child: Image.asset(
-                              'assets/images/level_a/question_a.png',
+                              'assets/images/level_a/question_e.png',
                               height: 250,
                               fit: BoxFit.contain),
                         )
@@ -380,7 +323,7 @@ class _QuestionAState extends State<QuestionA> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Kondisi luka yang terjadi tiba-tiba pada tubuh kita disebut ?",
+                          "Tindakan yang harus segera diberikan saat menemukan orang lain yang mengalami cedera agar kondisi tidak semakin parah disebut?",
                           textAlign: TextAlign.start,
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(
@@ -396,12 +339,32 @@ class _QuestionAState extends State<QuestionA> {
                       padding: EdgeInsets.only(top: 10, left: 10),
                       child: ButtonGeneralSecondary(
                         onPress: () {
+                          showDialogWrong(context, size);
+                        },
+                        backgroundColor: colorPurplePrimary,
+                        widgetChild: Text(
+                          "Pengobatan",
+                          style: GoogleFonts.rubik(
+                            textStyle: TextStyle(
+                              fontWeight: FontWeight.w700,
+                              color: colorWhite,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ),
+                        textColor: colorWhite,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 10, left: 10),
+                      child: ButtonGeneralSecondary(
+                        onPress: () {
                           helperFunction.savePointSpesificLevel("1", 5);
                           showDialogCorrect(context, size);
                         },
                         backgroundColor: colorPurplePrimary,
                         widgetChild: Text(
-                          "Cedera",
+                          "Pertolongan pertama",
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(
                               fontWeight: FontWeight.w700,
@@ -421,27 +384,7 @@ class _QuestionAState extends State<QuestionA> {
                         },
                         backgroundColor: colorPurplePrimary,
                         widgetChild: Text(
-                          "Pingsan",
-                          style: GoogleFonts.rubik(
-                            textStyle: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              color: colorWhite,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ),
-                        textColor: colorWhite,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 10, left: 10),
-                      child: ButtonGeneralSecondary(
-                        onPress: () {
-                          showDialogWrong(context, size);
-                        },
-                        backgroundColor: colorPurplePrimary,
-                        widgetChild: Text(
-                          "Darah",
+                          "Rujuk rumah sakit",
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(
                               fontWeight: FontWeight.w700,

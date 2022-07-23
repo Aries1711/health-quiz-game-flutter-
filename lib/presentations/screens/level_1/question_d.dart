@@ -4,21 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:game_health_efa/constant/colors.dart';
 import 'package:game_health_efa/logic/function/global_preferences.dart';
 import 'package:game_health_efa/logic/function/helper.dart';
-import 'package:game_health_efa/presentations/screens/level_1/question_b.dart';
+import 'package:game_health_efa/presentations/screens/level_1/question_c.dart';
+import 'package:game_health_efa/presentations/screens/level_1/question_e.dart';
 import 'package:game_health_efa/presentations/widgets/button_general.dart';
 import 'package:game_health_efa/presentations/widgets/button_general_seconday.dart';
 import 'package:game_health_efa/presentations/widgets/card_player.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class QuestionA extends StatefulWidget {
+class QuestionD extends StatefulWidget {
   final String title;
-  QuestionA({Key? key, required this.title}) : super(key: key);
+  QuestionD({Key? key, required this.title}) : super(key: key);
 
   @override
-  State<QuestionA> createState() => _QuestionAState();
+  State<QuestionD> createState() => _QuestionDState();
 }
 
-class _QuestionAState extends State<QuestionA> {
+class _QuestionDState extends State<QuestionD> {
   HelperFunction helperFunction = HelperFunction();
   GlobalPreferences globalPreferences = GlobalPreferences();
   String nameUser = "pemain", genderUser = "Laki-laki";
@@ -82,12 +83,12 @@ class _QuestionAState extends State<QuestionA> {
                     ),
                     Center(
                       child:
-                          Image.asset('assets/images/level_a/question_a.png'),
+                          Image.asset('assets/images/level_a/question_d.png'),
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 20, right: 20, top: 20),
                       child: Text(
-                        " Jawaban Benar : Cedera\n\nPada gambar tersebut ditampilkan kondisi perlukaan yang terjadi secara tiba-tiba pada bagian tubuh kita. Kondisi ini dikenal dengan istilah Cedera. Cedera dialami sekitar 4,7 juta orang di dunia setiap tahun.",
+                        "Jawaban : Lingkungan rumah dan sekolah \nPenjelasan : Data menunjukkan bahwa ada dua lokasi yang tertinggi untuk mengalami cedera yaitu: lingkungan rumah dan sekitarnya (58,9%)  dan lingkungan sekolah (18.5%)Sekolah menjadi salah satu lokasi yang paling sering terjadi cedera berhubungan dengan kondisi lingkungan sekolah yang cenderung kurang aman dan rendahnya pemahaman tentang kondisi berbahaya.",
                         textAlign: TextAlign.start,
                         style: GoogleFonts.rubik(
                           textStyle: TextStyle(
@@ -99,43 +100,13 @@ class _QuestionAState extends State<QuestionA> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
-                        top: 20,
-                        left: 20,
-                        right: 20,
-                      ),
-                      child: ButtonGeneralSecondary(
-                        onPress: () {
-                          launchDescriptionUrl();
-                        },
-                        backgroundColor: colorPurplePrimary,
-                        widgetChild: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            Text(
-                              "VIDEO PENJELASAN",
-                              style: GoogleFonts.rubik(
-                                textStyle: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  color: colorWhite,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ),
-                            Image.asset('assets/images/youtube-button.png')
-                          ],
-                        ),
-                        textColor: colorWhite,
-                      ),
-                    ),
-                    Padding(
                       padding: const EdgeInsets.all(20),
                       child: ButtonGeneralSecondary(
                         onPress: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => QuestionB(
+                              builder: (_) => QuestionE(
                                 title: 'number 2',
                               ),
                             ),
@@ -215,12 +186,12 @@ class _QuestionAState extends State<QuestionA> {
                     ),
                     Center(
                       child:
-                          Image.asset('assets/images/level_a/question_a.png'),
+                          Image.asset('assets/images/level_a/question_d.png'),
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 20, right: 20, top: 20),
                       child: Text(
-                        " Jawaban Benar : Cedera\nPada gambar tersebut ditampilkan kondisi perlukaan yang terjadi secara tiba-tiba pada bagian tubuh kita. Kondisi ini dikenal dengan istilah Cedera. Cedera dialami sekitar 4,7 juta orang di dunia setiap tahun.",
+                        "Jawaban : Lingkungan rumah dan sekolah \nPenjelasan : Data menunjukkan bahwa ada dua lokasi yang tertinggi untuk mengalami cedera yaitu: lingkungan rumah dan sekitarnya (58,9%)  dan lingkungan sekolah (18.5%)Sekolah menjadi salah satu lokasi yang paling sering terjadi cedera berhubungan dengan kondisi lingkungan sekolah yang cenderung kurang aman dan rendahnya pemahaman tentang kondisi berbahaya.",
                         textAlign: TextAlign.start,
                         style: GoogleFonts.rubik(
                           textStyle: TextStyle(
@@ -232,43 +203,13 @@ class _QuestionAState extends State<QuestionA> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
-                        top: 20,
-                        left: 20,
-                        right: 20,
-                      ),
-                      child: ButtonGeneralSecondary(
-                        onPress: () {
-                          launchDescriptionUrl();
-                        },
-                        backgroundColor: colorPurplePrimary,
-                        widgetChild: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            Text(
-                              "VIDEO PENJELASAN",
-                              style: GoogleFonts.rubik(
-                                textStyle: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  color: colorWhite,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ),
-                            Image.asset('assets/images/youtube-button.png')
-                          ],
-                        ),
-                        textColor: colorWhite,
-                      ),
-                    ),
-                    Padding(
                       padding: const EdgeInsets.all(20),
                       child: ButtonGeneralSecondary(
                         onPress: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => QuestionB(
+                              builder: (_) => QuestionE(
                                 title: 'number 2',
                               ),
                             ),
@@ -301,9 +242,11 @@ class _QuestionAState extends State<QuestionA> {
   onLoadPage() async {
     String nameUserSave = await globalPreferences.getFullname();
     String genderUserSave = await globalPreferences.getGender();
+    int pointUserInt = await globalPreferences.getScoreLevelOne();
     setState(() {
       nameUser = nameUserSave;
       genderUser = genderUserSave;
+      pointUser = pointUserInt;
     });
   }
 
@@ -337,7 +280,7 @@ class _QuestionAState extends State<QuestionA> {
                         Padding(
                           padding: EdgeInsets.only(top: 80),
                           child: Image.asset(
-                              'assets/images/level_a/question_a.png',
+                              'assets/images/level_a/question_d.png',
                               height: 250,
                               fit: BoxFit.contain),
                         )
@@ -380,7 +323,7 @@ class _QuestionAState extends State<QuestionA> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Kondisi luka yang terjadi tiba-tiba pada tubuh kita disebut ?",
+                          "Lokasi yang paling sering terjadi terjadi cedera di bawah ini adalah...",
                           textAlign: TextAlign.start,
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(
@@ -396,12 +339,32 @@ class _QuestionAState extends State<QuestionA> {
                       padding: EdgeInsets.only(top: 10, left: 10),
                       child: ButtonGeneralSecondary(
                         onPress: () {
+                          showDialogWrong(context, size);
+                        },
+                        backgroundColor: colorPurplePrimary,
+                        widgetChild: Text(
+                          "Kantor",
+                          style: GoogleFonts.rubik(
+                            textStyle: TextStyle(
+                              fontWeight: FontWeight.w700,
+                              color: colorWhite,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ),
+                        textColor: colorWhite,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 10, left: 10),
+                      child: ButtonGeneralSecondary(
+                        onPress: () {
                           helperFunction.savePointSpesificLevel("1", 5);
                           showDialogCorrect(context, size);
                         },
                         backgroundColor: colorPurplePrimary,
                         widgetChild: Text(
-                          "Cedera",
+                          "Lingkungan rumah dan sekolah",
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(
                               fontWeight: FontWeight.w700,
@@ -421,27 +384,7 @@ class _QuestionAState extends State<QuestionA> {
                         },
                         backgroundColor: colorPurplePrimary,
                         widgetChild: Text(
-                          "Pingsan",
-                          style: GoogleFonts.rubik(
-                            textStyle: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              color: colorWhite,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ),
-                        textColor: colorWhite,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 10, left: 10),
-                      child: ButtonGeneralSecondary(
-                        onPress: () {
-                          showDialogWrong(context, size);
-                        },
-                        backgroundColor: colorPurplePrimary,
-                        widgetChild: Text(
-                          "Darah",
+                          "Jalan raya",
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(
                               fontWeight: FontWeight.w700,

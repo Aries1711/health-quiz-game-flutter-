@@ -4,21 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:game_health_efa/constant/colors.dart';
 import 'package:game_health_efa/logic/function/global_preferences.dart';
 import 'package:game_health_efa/logic/function/helper.dart';
-import 'package:game_health_efa/presentations/screens/level_1/question_b.dart';
 import 'package:game_health_efa/presentations/widgets/button_general.dart';
 import 'package:game_health_efa/presentations/widgets/button_general_seconday.dart';
 import 'package:game_health_efa/presentations/widgets/card_player.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class QuestionA extends StatefulWidget {
+class QuestionH extends StatefulWidget {
   final String title;
-  QuestionA({Key? key, required this.title}) : super(key: key);
+  QuestionH({Key? key, required this.title}) : super(key: key);
 
   @override
-  State<QuestionA> createState() => _QuestionAState();
+  State<QuestionH> createState() => _QuestionHState();
 }
 
-class _QuestionAState extends State<QuestionA> {
+class _QuestionHState extends State<QuestionH> {
   HelperFunction helperFunction = HelperFunction();
   GlobalPreferences globalPreferences = GlobalPreferences();
   String nameUser = "pemain", genderUser = "Laki-laki";
@@ -82,12 +81,12 @@ class _QuestionAState extends State<QuestionA> {
                     ),
                     Center(
                       child:
-                          Image.asset('assets/images/level_a/question_a.png'),
+                          Image.asset('assets/images/level_a/question_h.png'),
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 20, right: 20, top: 20),
                       child: Text(
-                        " Jawaban Benar : Cedera\n\nPada gambar tersebut ditampilkan kondisi perlukaan yang terjadi secara tiba-tiba pada bagian tubuh kita. Kondisi ini dikenal dengan istilah Cedera. Cedera dialami sekitar 4,7 juta orang di dunia setiap tahun.",
+                        "Jawaban : Penanganan luka, perdarahan dan cedera otot, tulang serta sendi ektremitas\nPenjelasan : Pendidikan kesehatan berbasis bukti pengetahuan dapat pada anak sekolah dapat dimulai sejak usia 13-14 tahun dengan harapan tercapaianya pengetahuan, sikap dan keterampilan siswa sekolah. Materi yang dapat diajarkan pada nanak usia 13-14 tahun atau usia SMP adalah :\n •	Penanganan luka\n •	Penanganan perdarahan\n •	Penangana cedera otot, tulang dan sendi ekstremitas\n Ketiga materi dapat mulai diberikan pada anak usia sekolah dengan alasan di usia 13-14 atau usia anak SMP mereka telah memiliki pemahaman dan mampu mempraktekan materi yang telah diajarkan.",
                         textAlign: TextAlign.start,
                         style: GoogleFonts.rubik(
                           textStyle: TextStyle(
@@ -99,47 +98,10 @@ class _QuestionAState extends State<QuestionA> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
-                        top: 20,
-                        left: 20,
-                        right: 20,
-                      ),
-                      child: ButtonGeneralSecondary(
-                        onPress: () {
-                          launchDescriptionUrl();
-                        },
-                        backgroundColor: colorPurplePrimary,
-                        widgetChild: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            Text(
-                              "VIDEO PENJELASAN",
-                              style: GoogleFonts.rubik(
-                                textStyle: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  color: colorWhite,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ),
-                            Image.asset('assets/images/youtube-button.png')
-                          ],
-                        ),
-                        textColor: colorWhite,
-                      ),
-                    ),
-                    Padding(
                       padding: const EdgeInsets.all(20),
                       child: ButtonGeneralSecondary(
                         onPress: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => QuestionB(
-                                title: 'number 2',
-                              ),
-                            ),
-                          );
+                          Navigator.of(context).pushNamed('/level_a/finish');
                         },
                         backgroundColor: colorPurplePrimary,
                         widgetChild: Text(
@@ -215,12 +177,12 @@ class _QuestionAState extends State<QuestionA> {
                     ),
                     Center(
                       child:
-                          Image.asset('assets/images/level_a/question_a.png'),
+                          Image.asset('assets/images/level_a/question_h.png'),
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 20, right: 20, top: 20),
                       child: Text(
-                        " Jawaban Benar : Cedera\nPada gambar tersebut ditampilkan kondisi perlukaan yang terjadi secara tiba-tiba pada bagian tubuh kita. Kondisi ini dikenal dengan istilah Cedera. Cedera dialami sekitar 4,7 juta orang di dunia setiap tahun.",
+                        "Jawaban : Penanganan luka, perdarahan dan cedera otot, tulang serta sendi ektremitas\nPenjelasan : Pendidikan kesehatan berbasis bukti pengetahuan dapat pada anak sekolah dapat dimulai sejak usia 13-14 tahun dengan harapan tercapaianya pengetahuan, sikap dan keterampilan siswa sekolah. Materi yang dapat diajarkan pada nanak usia 13-14 tahun atau usia SMP adalah :\n •	Penanganan luka\n •	Penanganan perdarahan\n •	Penangana cedera otot, tulang dan sendi ekstremitas\n Ketiga materi dapat mulai diberikan pada anak usia sekolah dengan alasan di usia 13-14 atau usia anak SMP mereka telah memiliki pemahaman dan mampu mempraktekan materi yang telah diajarkan.",
                         textAlign: TextAlign.start,
                         style: GoogleFonts.rubik(
                           textStyle: TextStyle(
@@ -232,47 +194,10 @@ class _QuestionAState extends State<QuestionA> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
-                        top: 20,
-                        left: 20,
-                        right: 20,
-                      ),
-                      child: ButtonGeneralSecondary(
-                        onPress: () {
-                          launchDescriptionUrl();
-                        },
-                        backgroundColor: colorPurplePrimary,
-                        widgetChild: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            Text(
-                              "VIDEO PENJELASAN",
-                              style: GoogleFonts.rubik(
-                                textStyle: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  color: colorWhite,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ),
-                            Image.asset('assets/images/youtube-button.png')
-                          ],
-                        ),
-                        textColor: colorWhite,
-                      ),
-                    ),
-                    Padding(
                       padding: const EdgeInsets.all(20),
                       child: ButtonGeneralSecondary(
                         onPress: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => QuestionB(
-                                title: 'number 2',
-                              ),
-                            ),
-                          );
+                          Navigator.of(context).pushNamed('/level_a/finish');
                         },
                         backgroundColor: colorPurplePrimary,
                         widgetChild: Text(
@@ -301,9 +226,11 @@ class _QuestionAState extends State<QuestionA> {
   onLoadPage() async {
     String nameUserSave = await globalPreferences.getFullname();
     String genderUserSave = await globalPreferences.getGender();
+    int pointUserInt = await globalPreferences.getScoreLevelOne();
     setState(() {
       nameUser = nameUserSave;
       genderUser = genderUserSave;
+      pointUser = pointUserInt;
     });
   }
 
@@ -337,7 +264,7 @@ class _QuestionAState extends State<QuestionA> {
                         Padding(
                           padding: EdgeInsets.only(top: 80),
                           child: Image.asset(
-                              'assets/images/level_a/question_a.png',
+                              'assets/images/level_a/question_h.png',
                               height: 250,
                               fit: BoxFit.contain),
                         )
@@ -380,7 +307,7 @@ class _QuestionAState extends State<QuestionA> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Kondisi luka yang terjadi tiba-tiba pada tubuh kita disebut ?",
+                          "Materi pendidikan kesehatan tentang penanganan cedera yang dapat diberikan pada siswa SMP adalah...",
                           textAlign: TextAlign.start,
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(
@@ -401,7 +328,7 @@ class _QuestionAState extends State<QuestionA> {
                         },
                         backgroundColor: colorPurplePrimary,
                         widgetChild: Text(
-                          "Cedera",
+                          "Penanganan luka, perdarahan dan cedera otot, tulang serta sendi ektremitas",
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(
                               fontWeight: FontWeight.w700,
@@ -421,7 +348,7 @@ class _QuestionAState extends State<QuestionA> {
                         },
                         backgroundColor: colorPurplePrimary,
                         widgetChild: Text(
-                          "Pingsan",
+                          "Penanganan orang pingsan, muntah dan luka",
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(
                               fontWeight: FontWeight.w700,
@@ -441,7 +368,7 @@ class _QuestionAState extends State<QuestionA> {
                         },
                         backgroundColor: colorPurplePrimary,
                         widgetChild: Text(
-                          "Darah",
+                          "Penanganan luka, muntah dan tenggelam",
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(
                               fontWeight: FontWeight.w700,

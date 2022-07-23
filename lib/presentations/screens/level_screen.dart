@@ -96,7 +96,7 @@ class _LevelsScreenState extends State<LevelsScreen> {
                     child: Text(
                       (() {
                         if (levelChoose == 1) {
-                          return "Berisikan 7 pertanyaan dengan ketentuan (skor benar 5, salah 0, tanpa batas waktu)";
+                          return "Berisikan 8 pertanyaan dengan ketentuan (skor benar 5, salah 0, tanpa batas waktu)";
                         } else if (levelChoose == 2) {
                           return "Berisikan 7 pertanyaan dengan ketentuan (skor benar 5, salah 0, dengan batas waktu 60 detik)";
                         } else {
@@ -648,7 +648,7 @@ class _LevelsScreenState extends State<LevelsScreen> {
               },
             ),
             Container(
-              margin: EdgeInsets.only(top: 20),
+              margin: EdgeInsets.only(top: 20, bottom: 20),
               width: size.width,
               child: Align(
                 alignment: Alignment.center,
