@@ -407,7 +407,7 @@ class _QuestionAThreeState extends State<QuestionAThree> {
                     endTime: endTime,
                     onEnd: () async {
                       if (answered == false) {
-                        await helperFunction.savePointSpesificLevel("2", 0);
+                        await helperFunction.savePointSpesificLevel("3", -1);
                         showDialogTimesUp(context, size);
                       }
                     },
@@ -451,7 +451,7 @@ class _QuestionAThreeState extends State<QuestionAThree> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Dampak cedera yang terjadi pada otot maupun ekstremitas seperti keseleo yang paling buruk dapat mengakibatkan kondisi ...",
+                          "1. Dampak cedera yang terjadi pada otot maupun ekstremitas seperti keseleo yang paling buruk dapat mengakibatkan kondisi ...",
                           textAlign: TextAlign.start,
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(

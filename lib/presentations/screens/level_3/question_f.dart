@@ -461,7 +461,7 @@ class _QuestionFThreeState extends State<QuestionFThree> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Apa hal pertama yang akan anda lakukan saat menemukan kondisi di atas?",
+                          "6. Apa hal pertama yang akan anda lakukan saat menemukan kondisi di atas?",
                           textAlign: TextAlign.start,
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(

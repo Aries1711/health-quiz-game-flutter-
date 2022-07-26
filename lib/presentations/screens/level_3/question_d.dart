@@ -452,7 +452,7 @@ class _QuestionDThreeState extends State<QuestionDThree> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Tujuan mengistirahatkan area yang cedera pada prinsip RICE adalah…",
+                          "4. Tujuan mengistirahatkan area yang cedera pada prinsip RICE adalah…",
                           textAlign: TextAlign.start,
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(

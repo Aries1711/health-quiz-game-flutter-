@@ -322,7 +322,7 @@ class _QuestionBState extends State<QuestionB> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Dampak yang berbahaya saat terkena cedera adalah dibawah ini kecuali...",
+                          "2. Dampak yang berbahaya saat terkena cedera adalah dibawah ini kecuali...",
                           textAlign: TextAlign.start,
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(

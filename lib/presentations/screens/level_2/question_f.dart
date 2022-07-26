@@ -542,7 +542,7 @@ class _QuestionFTwoState extends State<QuestionFTwo> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Apa tindakan awal yang harus segera dilakukan saat kaki terkena luka bakar saat terkena knalpot?",
+                          "6. Apa tindakan awal yang harus segera dilakukan saat kaki terkena luka bakar saat terkena knalpot?",
                           textAlign: TextAlign.start,
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(

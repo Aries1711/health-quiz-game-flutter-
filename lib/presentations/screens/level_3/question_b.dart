@@ -453,7 +453,7 @@ class _QuestionBThreeState extends State<QuestionBThree> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Cedera yang berhubungan dengan tulang, otot dan sendi mayoritas terjadi akibat?",
+                          "2. Cedera yang berhubungan dengan tulang, otot dan sendi mayoritas terjadi akibat?",
                           textAlign: TextAlign.start,
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(

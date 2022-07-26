@@ -521,7 +521,7 @@ class _QuestionGThreeState extends State<QuestionGThree> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Apa nama alat di atas?",
+                          "7. Apa nama alat di atas?",
                           textAlign: TextAlign.start,
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(

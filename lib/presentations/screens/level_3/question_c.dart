@@ -542,7 +542,7 @@ class _QuestionCThreeState extends State<QuestionCThree> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Prinsip penangangan awal individu dengan cedera otot dan persedian ekstremitas seperti keseleo dapat menggunakan prinsip...",
+                          "3. Prinsip penangangan awal individu dengan cedera otot dan persedian ekstremitas seperti keseleo dapat menggunakan prinsip...",
                           textAlign: TextAlign.start,
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(

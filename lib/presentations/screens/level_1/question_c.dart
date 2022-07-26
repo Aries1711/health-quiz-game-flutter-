@@ -322,7 +322,7 @@ class _QuestionCState extends State<QuestionC> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Siapa saja yang dapat mengalami cedera?",
+                          "3. Siapa saja yang dapat mengalami cedera?",
                           textAlign: TextAlign.start,
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(

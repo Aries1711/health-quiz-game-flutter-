@@ -323,7 +323,7 @@ class _QuestionDState extends State<QuestionD> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Lokasi yang paling sering terjadi terjadi cedera di bawah ini adalah...",
+                          "4. Lokasi yang paling sering terjadi terjadi cedera di bawah ini adalah...",
                           textAlign: TextAlign.start,
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(

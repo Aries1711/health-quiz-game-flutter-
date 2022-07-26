@@ -324,7 +324,7 @@ class _QuestionGState extends State<QuestionG> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Orang awam yang tidak punya pengalaman medis namun mampu memberikan perawatan pertolongan pertama pada orang yang cedera disebut...",
+                          "7. Orang awam yang tidak punya pengalaman medis namun mampu memberikan perawatan pertolongan pertama pada orang yang cedera disebut...",
                           textAlign: TextAlign.start,
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(

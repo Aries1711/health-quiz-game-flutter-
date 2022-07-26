@@ -542,7 +542,7 @@ class _QuestionETwoState extends State<QuestionETwo> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Apa yang harus Anda lakukan bila nampak darah mengalir terus menerus dari luka?",
+                          "5. Apa yang harus Anda lakukan bila nampak darah mengalir terus menerus dari luka?",
                           textAlign: TextAlign.start,
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(

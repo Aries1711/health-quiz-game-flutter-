@@ -200,7 +200,7 @@ class _QuestionGTwoState extends State<QuestionGTwo> {
                       padding: const EdgeInsets.all(20),
                       child: ButtonGeneralSecondary(
                         onPress: () {
-                          Navigator.of(context).pushNamed('/level_a/finish');
+                          Navigator.of(context).pushNamed('/level_b/finish');
                         },
                         backgroundColor: colorPurplePrimary,
                         widgetChild: Text(
@@ -430,7 +430,7 @@ class _QuestionGTwoState extends State<QuestionGTwo> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Hal pertama yang harus dilakukan jika melihat korban kecelakaan dengan perdarahan banyak adalah...",
+                          "7. Hal pertama yang harus dilakukan jika melihat korban kecelakaan dengan perdarahan banyak adalah...",
                           textAlign: TextAlign.start,
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(

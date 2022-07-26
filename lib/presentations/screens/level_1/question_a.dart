@@ -380,7 +380,7 @@ class _QuestionAState extends State<QuestionA> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Kondisi luka yang terjadi tiba-tiba pada tubuh kita disebut ?",
+                          "1. Kondisi luka yang terjadi tiba-tiba pada tubuh kita disebut ?",
                           textAlign: TextAlign.start,
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(

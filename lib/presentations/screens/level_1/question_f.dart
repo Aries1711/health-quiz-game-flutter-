@@ -324,7 +324,7 @@ class _QuestionFState extends State<QuestionF> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Gambar cedera jenis apakah di atas ini?",
+                          "6. Gambar cedera jenis apakah di atas ini?",
                           textAlign: TextAlign.start,
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(

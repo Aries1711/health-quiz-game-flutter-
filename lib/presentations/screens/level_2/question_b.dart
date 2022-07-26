@@ -452,7 +452,7 @@ class _QuestionBTwoState extends State<QuestionBTwo> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Luka seperti gambar di atas disebut?",
+                          "2. Luka seperti gambar di atas disebut?",
                           textAlign: TextAlign.start,
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(

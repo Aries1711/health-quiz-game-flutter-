@@ -452,7 +452,7 @@ class _QuestionEThreeState extends State<QuestionEThree> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Hal yang harus diperhatikan saat mengaplikasikan prinsip RICE adalah..",
+                          "5. Hal yang harus diperhatikan saat mengaplikasikan prinsip RICE adalah..",
                           textAlign: TextAlign.start,
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(

@@ -452,7 +452,7 @@ class _QuestionCTwoState extends State<QuestionCTwo> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Apa yang dilakukan penolong pertama kali sebelum melakukan penanganan seperti pada luka di atas?",
+                          "3. Apa yang dilakukan penolong pertama kali sebelum melakukan penanganan seperti pada luka di atas?",
                           textAlign: TextAlign.start,
                           style: GoogleFonts.rubik(
                             textStyle: TextStyle(
