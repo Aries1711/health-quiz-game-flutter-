@@ -261,7 +261,7 @@ class _LevelsScreenState extends State<LevelsScreen> {
                   Padding(
                     padding: EdgeInsets.only(left: 20, right: 20),
                     child: Text(
-                      "Dalam permainan game E-Fa pemain harus menyelesaikan setiap level dengan skor kelulusan maksimum untuk bisa lanjut memilih level selanjutnya",
+                      "Dalam permainan game E-Fa pemain harus menyelesaikan setiap level dengan baik untuk bisa lanjut memilih level berikutnya",
                       textAlign: TextAlign.start,
                       style: GoogleFonts.rubik(
                         textStyle: TextStyle(

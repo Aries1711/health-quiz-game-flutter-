@@ -46,7 +46,7 @@ class _IntroScreenState extends State<IntroScreen> {
                 child: Align(
                   alignment: Alignment.center,
                   child: Text(
-                    "Education First Game adalah game quis seputar pertolongan pertama",
+                    "Education First Aid Game adalah game quis seputar pertolongan pertama",
                     textAlign: TextAlign.center,
                     style: GoogleFonts.rubik(
                       textStyle: TextStyle(

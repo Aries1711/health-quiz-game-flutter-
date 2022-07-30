@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:game_health_efa/constant/colors.dart';
 import 'package:game_health_efa/logic/function/global_preferences.dart';
-import 'package:game_health_efa/presentations/widgets/button_general.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -73,7 +72,7 @@ class _IntroScreenState extends State<SplashScreen> {
                   child: Align(
                     alignment: Alignment.center,
                     child: Text(
-                      "Education First Game",
+                      "Education First Aid Game",
                       textAlign: TextAlign.center,
                       style: GoogleFonts.rubik(
                         textStyle: TextStyle(
